@@ -1,31 +1,47 @@
 <template>
     <div id="app">
-        移动端开发健康人才网
-        <van-cell-group class="item-list">
-            <van-cell is-link icon="points" title="我的积分"/>
-            <van-cell is-link icon="gift" title="我收到的礼物"/>
-        </van-cell-group>
+        <router-view/>
     </div>
 </template>
 
 <script>
-    import {Cell, CellGroup, Icon} from 'vant';
-
     export default {
-        components: {
-            [Cell.name]: Cell,
-            [CellGroup.name]: CellGroup,
-            [Icon.name]: Icon
-        }
+        name: 'App'
     };
 </script>
 
-<style>
-    body {
-        background-color: #f8f8f8;
+<style rel="stylesheet/scss" lang="scss">
+    html,body {
+        width: 100%;
+        height: 100%;
+        position: relative;
     }
-
-    .van-cell__title .van-icon {
-        font-size: 18px;
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .lr {
+        margin: 0 7px;
+    }
+    p {
+        margin: 0;
+    }
+    .spacing {
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+    .clearfix {
+        &:after {
+            content: '';
+            display: block;
+            visibility: hidden;
+            width:0 ;
+            height: 0;
+            clear: both;
+        }
     }
 </style>
