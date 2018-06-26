@@ -12,17 +12,21 @@
             <s-title :link="'video'">视频在线看</s-title>
             <s-video :list="videos"></s-video>
             <s-title :link="'hunter'">热门招聘单位</s-title>
+            <s-hunters :list="hunters"></s-hunters>
             <s-title :link="'job'">热门职位</s-title>
+            <s-jobs :list="jobs"></s-jobs>
             <s-title :link="'talents'">人才列表</s-title>
+            <s-talents :list="talents"></s-talents>
             <s-title :showMore="false">友情链接</s-title>
+            <s-links :list="links"></s-links>
         </div>
     </div>
 </template>
 <script>
     import { sHeader, sSlider, sTitle } from '@/components'
-    import { sNews, sLessons, sTeachers, sVideo } from './components'
+    import { sNews, sLessons, sTeachers, sVideo, sHunters, sJobs, sTalents, sLinks } from './components'
     import { Toast } from 'vant'
-    import { queryPoster, queryNews, queryLessons, queryTeachers, queryVideos } from '@/api/service'
+    import { queryFriendShips,queryPoster, queryNews, queryLessons, queryTeachers, queryVideos, queryCompany, queryJobs, queryTalents } from '@/api/service'
     export default {
         name: 'home',
         data() {
@@ -31,7 +35,11 @@
                 newsList: [],
                 lessons: [],
                 teachers: [],
-                videos: []
+                videos: [],
+                hunters: [],
+                jobs: [],
+                talents: [],
+                links: []
             }
         },
         mounted() {
@@ -43,10 +51,30 @@
                     mask: true,
                     message: '加载中...'
                 })
-                Promise.all([this.getPoster(), this.getNews(), this.getLessons(), this.getTeachers(), this.getVideos()]).then(() => {
+                Promise.all([this.getFriendShips(), this.getPoster(), this.getNews(), this.getLessons(), this.getTeachers(), this.getVideos(), this.getCompany(), this.getJobs(), this.getTalents()]).then(() => {
                     setTimeout(() => {
                         Toast.clear()
                     }, 500)
+                })
+            },
+            getFriendShips() {
+                return queryFriendShips().then(res => {
+                    this.links = res.list
+                })
+            },
+            getTalents() {
+                return queryTalents().then(res => {
+                    this.talents = res.list
+                })
+            },
+            getJobs() {
+                return queryJobs().then(res => {
+                    this.jobs = res.list
+                })
+            },
+            getCompany() {
+                return queryCompany().then(res => {
+                    this.hunters = res.list
                 })
             },
             getVideos() {
@@ -82,7 +110,11 @@
             sNews,
             sLessons,
             sTeachers,
-            sVideo
+            sVideo,
+            sHunters,
+            sJobs,
+            sTalents,
+            sLinks
         }
     }
 </script>
