@@ -3,7 +3,7 @@
         <van-swipe :autoplay="0">
             <van-swipe-item v-for="(item, index) in list" :key="'s-lider-' + index">
                 <a :href="item.link">
-                    <img :src="item.imgurl" alt="">
+                    <div class="imgBg" :style="{backgroundImage: 'url(' + (item.imgUrl || item.imgurl) + ')'}"></div>
                 </a>
             </van-swipe-item>
         </van-swipe>
@@ -30,9 +30,17 @@
         height: 180px;
         .van-swipe {
             height: 100%;
-            img {
+            a {
+                display: block;
                 width: 100%;
                 height: 100%;
+                .imgBg {
+                    width: 100%;
+                    height: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                }
             }
         }
     }

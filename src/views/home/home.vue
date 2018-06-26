@@ -3,9 +3,9 @@
         <s-header></s-header>
         <div class="container">
             <s-slider :list="posters"></s-slider>
-            <s-title :link="'news'">新闻中心</s-title>
+            <s-title :link="'news-home'">新闻中心</s-title>
             <s-news :list="newsList"></s-news>
-            <s-title :link="'lessons'">课程培训</s-title>
+            <s-title :link="'news-list2'">课程培训</s-title>
             <s-lessons :list="lessons"></s-lessons>
             <s-title :link="'teachers'">优秀导师</s-title>
             <s-teachers :list="teachers"></s-teachers>

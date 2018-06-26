@@ -2,7 +2,7 @@
     <div class="title lr">
         <div class="left"><slot></slot></div>
         <div class="right" v-if="showMore">
-            <router-link tag="a" :to="link">更多>></router-link>
+            <router-link tag="a" :to="to">更多>></router-link>
         </div>
     </div>
 </template>
@@ -14,9 +14,25 @@
                 type: String,
                 default: ''
             },
+            query: {
+                type: Object,
+                default: null
+            },
             showMore: {
                 type: Boolean,
                 default: true
+            }
+        },
+        computed: {
+            to() {
+                if (this.showMore) {
+                    let obj = {}
+                    obj.path = '/' + this.link
+                    if (this.query) {
+                        obj.query = this.query
+                    }
+                    return obj
+                }
             }
         },
         components: {

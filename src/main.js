@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import router from './router'
 import store from './store'
-// import './permission' // permission control
+import './permission' // permission control
 
 process.env.NODE_ENV === 'development' && require('./mock') // simulation data
 import * as filters from './filters' // global filters

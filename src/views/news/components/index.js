@@ -1,0 +1,1 @@
+export { default as sNewsList } from './news-list'
