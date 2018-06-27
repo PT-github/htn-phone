@@ -30,6 +30,12 @@ export default new Router({
             component: _import('news/news-detail'),
             name: 'newsDetail',
             meta: {title: '新闻详情', keepAlive: false}
+        },
+        {
+            path: '/personnel-list',
+            component: _import('job/personnel-list'),
+            name: 'personnelList',
+            meta: {title: '招揽人才', keepAlive: true}
         }
     ]
 })

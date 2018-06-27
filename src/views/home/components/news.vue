@@ -1,20 +1,22 @@
 <template>
     <div class="news lr" v-if="list.length > 0">
         <div class="part-01">
-            <div class="left">
-                <div class="pic">
-                    <img :src="list[0].imgUrl" :alt="list[0].name">
+            <router-link tag="a" :to="{ name: 'newsDetail', params: {newsId: list[0].id} }">
+                <div class="left">
+                    <div class="pic">
+                        <img :src="list[0].imgUrl" :alt="list[0].name">
+                    </div>
                 </div>
-            </div>
-            <div class="right">
-                <p class="p1">{{ list[0].name }}</p>
-                <p class="p2">{{ list[0].desc }}</p>
-            </div>
+                <div class="right">
+                    <p class="p1">{{ list[0].name }}</p>
+                    <p class="p2">{{ list[0].desc }}</p>
+                </div>
+            </router-link>
         </div>
         <ul class="part-02 clearfix">
             <template v-for="(item, index) in list">
                 <template v-if="index > 0">
-                    <li><router-link tag="a" :to="{path: '/news-detail', params: { id: item.id }}">{{ item.name }}</router-link></li>
+                    <li><router-link tag="a" :to="{name: 'newsDetail', params: { newsId: item.id }}">{{ item.name }}</router-link></li>
                 </template>
             </template>
         </ul>
@@ -61,6 +63,11 @@
             height: 86px;
             width: 100%;
             position: relative;
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
             .right {
                 position: absolute;
                 top: 0;

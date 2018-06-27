@@ -15,20 +15,6 @@ export default {
                     {id: 1,name: '男'},
                     {id: 2,name: '女'}
                 ],
-                placeBelong: [
-                    {id: 1, name: '热门城市', "citys|10": [ {"id|+1": 1, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 2, name: 'A B C', "citys|10": [ {"id|+1": 11, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 3, name: 'D E F G', "citys|10": [ {"id|+1": 21, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 4, name: 'H I', "citys|10": [ {"id|+1": 31, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 5, name: 'J K', "citys|10": [ {"id|+1": 41, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 6, name: 'L M N', "citys|10": [ {"id|+1": 51, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 7, name: 'O P Q R', "citys|10": [ {"id|+1": 61, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 8, name: 'S T U', "citys|10": [ {"id|+1": 71, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 9, name: 'V W X', "citys|10": [ {"id|+1": 81, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 10, name: 'Y Z', "citys|10": [ {"id|+1": 91, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 11, name: '所有省份', "citys|10": [ {"id|+1": 101, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]},
-                    {id: 12, name: '国外', "citys|10": [ {"id|+1": 111, "name|1": ['长沙','长沙2','长沙3','长沙4']} ]}
-                ],
                 "releaseDate": [
                     {"id": 100, "name": "24小时内"},
                     {"id": 101, "name": "近三天"},
@@ -570,7 +556,7 @@ export default {
             "message": '成功',
             "list|7": [
                 {
-                    "'id|+1": 1,
+                    "id|+1": 1,
                     "imgUrl": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg",
                     "name": "首届湖南“健康管理师之星”评选结果公示",
                     "desc": "首届湖南“健康管理师之星通过宣传发动、提名推荐、网络投票、微信投票首届湖南“健康管理师之星通过宣传发动、提名推荐、网络投票、微信投票"

@@ -14,7 +14,7 @@
 </template>
 <script>
     export default {
-        name: 'sNews',
+        name: 'sLessons',
         props: {
             list: {
                 type: Array,
