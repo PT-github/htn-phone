@@ -1,8 +1,8 @@
 <template>
     <ul class="news-list lr" v-if="list.length > 0">
         <li class="news-list-item" v-for="(item, index) in list" :key="'news-list' + index">
-            {{ item.name }}
-            <span class="arrow"><van-icon name="arrow" /></span>
+            <router-link tag="a" :to="{ name: 'newsDetail', params: { newsId: item.id } }">{{ item.name }}
+            <span class="arrow"><van-icon name="arrow" /></span></router-link>
         </li>
     </ul>
 </template>
@@ -38,6 +38,9 @@
             position: relative;
             padding-right: 30px;
             text-indent: 5px;
+            a {
+                color: #000;
+            }
             .arrow {
                 position: absolute;
                 right: 8px;

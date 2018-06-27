@@ -302,10 +302,10 @@ export default {
             'success': true,
             "message": '成功',
             "totalPage": 4,
-            "list|30": [
+            "list|10": [
                 {
                     "id|+1": 1,
-                    "title|1": ["新闻的标题","内容标题在哪里"],
+                    "name|1": ["新闻的标题","内容标题在哪里"],
                     "category": "新闻的分类",
                     "publishTime|1": ["2018-10-10 10:10:20","2015-09-09 09:09:09",],
                     "publishMan|1": ["系统管理员","国家领导人"],

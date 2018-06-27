@@ -18,6 +18,18 @@ export default new Router({
             component: _import('news/news-home'),
             name: 'newsHome',
             meta: {title: '新闻中心', keepAlive: true}
+        },
+        {
+            path: '/news-list',
+            component: _import('news/news-list'),
+            name: 'newsList',
+            meta: {title: '新闻分类列表', keepAlive: false}
+        },
+        {
+            path: '/news-detail/:newsId',
+            component: _import('news/news-detail'),
+            name: 'newsDetail',
+            meta: {title: '新闻详情', keepAlive: false}
         }
     ]
 })
