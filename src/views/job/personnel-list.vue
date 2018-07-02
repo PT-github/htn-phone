@@ -6,8 +6,14 @@
         </div>
         <div class="list-box">
             <van-list v-model="loading" :finished="finished" @load="getPersons">
-                <div v-for="(item, index) in list" :key="'resume-' + index">{{ item.name }}</div>
+                <s-talents ref="talentsComp" :choosedFromTop="choosed" @choosedTalent="choosedTalent" :showCheck="true"
+                           :list="list"/>
             </van-list>
+        </div>
+        <div class="apply all bb">
+            <span class="qx" :class="{on: isSelectAll}" @click="selectAll">全选</span>
+            <span class="sc bb" @click="scFun">收藏</span>
+            <span class="sq" @click="applyFun">邀约面试</span>
         </div>
         <van-popup v-model="areaShow" position="bottom" :close-on-click-overlay="false">
             <van-area @cancel="hideArea" @confirm="confirmArea" :area-list="areaList" :columns-num="2" :value="value"/>
@@ -29,9 +35,10 @@
 </template>
 <script>
     import Layout from '@/views/layout/layout'
+    import { sTalents } from '@/views/home/components'
     import AreaList from './area';
     import {Area, Popup, TreeSelect, Toast, List} from 'vant';
-    import { queryFilterOptions, queryResume } from '@/api/service'
+    import { queryFilterOptions, queryResume, collectResumesByIds, invateInterViewByIds } from '@/api/service'
 
     export default {
         name: 'personnelList',
@@ -40,6 +47,8 @@
         },
         data() {
             return {
+                isSelectAll: false,
+                choosed: [],
                 loading: false,
                 finished: false,
                 mainActiveIndex: 0,
@@ -102,6 +111,63 @@
             }
         },
         methods: {
+            applyFun() {
+                if (this.choosed.length > 0) {
+                    if (this.$store.getters.isLogin !== '1') {
+                        Toast('请先登录')
+                        setTimeout(() =>{
+                            this.$router.push('/login')
+                        }, 500)
+                        return;
+                    }
+                    Toast.loading()
+                    invateInterViewByIds({ids: this.choosed.join(',')}).then(res => {
+                        Toast.clear()
+                        if (res.data.success) {
+                            Toast('邀约面试成功')
+                        } else {
+                            Toast('邀约面试失败')
+                        }
+                    })
+                } else {
+                    Toast('请至少选择一份简历')
+                }
+            },
+            scFun() {
+                if (this.choosed.length > 0) {
+                    if (this.$store.getters.isLogin !== '1') {
+                        Toast('请先登录')
+                        setTimeout(() =>{
+                            this.$router.push('/login')
+                        }, 500)
+                        return;
+                    }
+                    Toast.loading('收藏中...')
+                    collectResumesByIds({ids: this.choosed.join(',')}).then(res => {
+                        Toast.clear()
+                        if (res.data.success) {
+                            Toast('简历收藏成功')
+                        } else {
+                            Toast('简历收藏失败')
+                        }
+                    })
+                } else {
+                    Toast('请至少选择一份简历')
+                }
+            },
+            selectAll() {
+                if (!this.isSelectAll) {
+                    this.isSelectAll = true
+                    this.$refs['talentsComp'].selectAll()
+                } else {
+                    this.isSelectAll = false
+                    this.$refs['talentsComp'].reverseSelectAll()
+                }
+            },
+            choosedTalent(list) {
+                console.log(list)
+                this.choosed = list
+            },
             getPersons() {
                 // mode 0 非高级人才 1 高级人才
                 this.loading = true
@@ -195,6 +261,7 @@
             }
         },
         components: {
+            sTalents,
             [Area.name]: Area,
             [Popup.name]: Popup,
             [TreeSelect.name]: TreeSelect,
@@ -205,12 +272,79 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
     .personnel-list {
+        .apply {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            z-index: 2;
+            padding: 8px 5px;
+            display: flex;
+            font-size: 14px;
+            line-height: 40px;
+            .qx {
+                width: 60px;
+                height: 40px;
+                margin-right: 5px;
+                position: relative;
+                padding-left: 31px;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 22px;
+                    height: 20px;
+                    left: 10px;
+                    top: 50%;
+                    margin-top: -10px;
+                    background-image: url(/static/imgs/icon_radio.png);
+                    background-size: 70px auto;
+                    background-repeat: no-repeat;
+                }
+            }
+            .qx.on {
+                &:before {
+                    background-position: -23px 0;
+                }
+            }
+            .sc {
+                width: 90px;
+                height: 40px;
+                border: 1px solid #ff7e3e;
+                color: #ff7e3e;
+                margin-right: 5px;
+                border-radius: 5px;
+                position: relative;
+                padding-left: 40px;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    left: 14px;
+                    top: 50%;
+                    margin-top: -10px;
+                    background-image: url(/static/imgs/icon_sc.png);
+                    background-size: 20px auto;
+                    background-repeat: no-repeat;
+                }
+            }
+            .sq {
+                flex: 1;
+                height: 40px;
+                background-color: #ff7e3e;
+                color:#FFF;
+                border-radius: 5px;
+                text-align: center;
+            }
+        }
         .list-box {
+            z-index: 1;
             position:absolute;
             top: 35px;
             left: 0;
             right: 0;
-            bottom: 0;
+            bottom: 50px;
             overflow-y: auto;
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
@@ -218,6 +352,7 @@
         .personnel-selector {
             position: fixed;
             top: 46px;
+            z-index: 2;
             left: 0;
             right: 0;
             height: 35px;
@@ -225,7 +360,7 @@
             display: flex;
             text-align: center;
             font-size: 14px;
-            border-bottom: 1px solid #dcdcdc;
+            border-bottom: 1px solid #e5e5e5;
 
             .flex-auto {
                 flex: 1;
@@ -234,7 +369,7 @@
                     color: #333;
                 }
                 &:first-child {
-                    border-right: 1px solid #dcdcdc;
+                    border-right: 1px solid #e5e5e5;
                 }
             }
             .flex-auto.active {

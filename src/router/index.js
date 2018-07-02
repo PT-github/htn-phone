@@ -36,6 +36,18 @@ export default new Router({
             component: _import('job/personnel-list'),
             name: 'personnelList',
             meta: {title: '招揽人才', keepAlive: true}
+        },
+        {
+            path: '/resume-detail/:id',
+            component: _import('job/resume-detail'),
+            name: 'resumeDetail',
+            meta: {title: '简历详情', keepAlive: false}
+        },
+        {
+            path: '/about',
+            component: _import('about/about'),
+            name: 'aboutUs',
+            meta: {title: '关于我们', keepAlive: true}
         }
     ]
 })
