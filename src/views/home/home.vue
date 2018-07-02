@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <s-header></s-header>
+        <s-header ref="headerComp"></s-header>
         <div class="container">
             <s-slider :list="posters"></s-slider>
             <s-title :link="'news-home'">新闻中心</s-title>
@@ -44,6 +44,9 @@
         },
         mounted() {
             this.init()
+            document.querySelector('.container').addEventListener('scroll', () => {
+                this.$refs['headerComp'].hideNav()
+            })
         },
         methods: {
             init() {
