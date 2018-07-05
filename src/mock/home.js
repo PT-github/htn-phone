@@ -194,14 +194,15 @@ export default {
         })
     },
     /**
-     * 通过分类获取视频列表
+     * 通过分类获取视频列表----changed
      * @returns {*}
      */
     queryVideoByCategory: () => {
         return Mock.mock({
             'success': true,
             "message": '成功',
-            "list|3": [
+            "totalPage": 58,
+            "list|10": [
                 {
                     "id|+1": 1,
                     "name|1": ["学习视频名称一","学习视频名称二", "学习视频名称三"],
@@ -256,7 +257,7 @@ export default {
         return Mock.mock({
             'success': true,
             "message": '成功',
-            "list|8": [
+            "list|30": [
                 {
                     "id|+1": 1,
                     "title|1": ["健康咨询师","育婴师", "催乳师"]
@@ -542,6 +543,44 @@ export default {
                     "id|+1": 100,
                     "name|1":["课程名称","课程名称1","课程名称2","课程名称3"],
                     "imgUrl": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"
+                }
+            ]
+        })
+    },
+    /**
+     * 课程培训分类=======added
+     * @returns {*}
+     */
+    queryLessonCategory: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list|5-10": [
+                {
+                    "id|+1": 100,
+                    "name|1":["健康管理师", "育婴师", "心理咨询师", "催乳师", "继续教育"]
+                }
+            ]
+        })
+    },
+    /**
+     * 通过分类分页查询课程培训=======added
+     * @returns {*}
+     */
+    queryLessonByCategory: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "totalPage": 100,
+            "list|10": [
+                {
+                    "id|+1": 100,
+                    "name|1":["课程名称","课程名称1","课程名称2","课程名称3"],
+                    "openDate": "03月10日-09月12日",
+                    "classHour": "18天",
+                    "tranningFee": "1000元",
+                    "examinationFee": "100元",
+                    "totalFee": "1100元"
                 }
             ]
         })

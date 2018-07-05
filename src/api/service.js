@@ -133,6 +133,20 @@ export function queryNewsListByCategory(data) {
 
 
 // =======================教育培新页面开始=========================
+// 课程分类列表 -----ADD
+export function queryLessonCategory() {
+    return request({
+        url: '/education/queryLessonCategory',
+        method: 'post'
+    })
+}// 通过分类分页查询课程列表 -----ADD
+export function queryLessonByCategory(data) {
+    return request({
+        url: '/education/queryLessonByCategory',
+        method: 'post',
+        data
+    })
+}
 // 培训项目列表
 export function queryProject() {
     return request({

@@ -26,11 +26,13 @@ Mock.mock(/\/queryNewsListByCategory/, 'post', api.queryNewsListByCategory)
 Mock.mock(/\/login$/, 'post', api.login)
 
 // 教育培训
+Mock.mock(/\/queryLessonCategory$/, 'post', api.queryLessonCategory)
+Mock.mock(/\/queryLessonByCategory$/, 'post', api.queryLessonByCategory)
 Mock.mock(/\/queryProject/, 'post', api.queryProject)
 Mock.mock(/\/queryTeachersByPage$/, 'post', api.queryTeachersByPage)
 Mock.mock(/\/queryCategory$/, 'post', api.queryCategory)
 Mock.mock(/\/queryVideoByCategory/, 'post', api.queryVideoByCategory)
-// 教育培训
+// 招聘人才
 Mock.mock(/\/personel\/queryFilterOptions/, 'post', api.queryFilterOptions)
 Mock.mock(/\/personel\/queryResume$/, 'post', api.queryResume)
 Mock.mock(/\/personel\/invateInterViewByIds/, 'post', api.invateInterViewByIds)

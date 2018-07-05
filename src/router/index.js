@@ -56,6 +56,12 @@ export default new Router({
             meta: {title: '职位详情', keepAlive: false}
         },
         {
+            path: '/education-training',
+            component: _import('education/education-training'),
+            name: 'educationTraining',
+            meta: {title: '教育培训', keepAlive: true}
+        },
+        {
             path: '/about',
             component: _import('about/about'),
             name: 'aboutUs',
