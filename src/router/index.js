@@ -35,7 +35,7 @@ export default new Router({
             path: '/personnel-list',
             component: _import('job/personnel-list'),
             name: 'personnelList',
-            meta: {title: '招揽人才', keepAlive: true}
+            meta: {title: '招揽人才', keepAlive: false}
         },
         {
             path: '/job-list',

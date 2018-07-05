@@ -9,12 +9,12 @@
         <div class="right">
             <span>会员</span>
         </div>
-        <ul class="nav" v-show="navShow">
+        <ul class="nav" v-show="navShow" @click="hideNav">
             <li><router-link tag="a" :to="'news-home'">新闻中心</router-link></li>
-            <li><router-link tag="a" :to="'news-home'">教育培训</router-link></li>
-            <li><router-link tag="a" :to="'personnel-list'">招揽人才</router-link></li>
-            <li><router-link tag="a" :to="'news-home'">找工作</router-link></li>
-            <li><router-link tag="a" :to="'personnel-list'">中高级人才</router-link></li>
+            <li><router-link tag="a" :to="'education-training'">教育培训</router-link></li>
+            <li><router-link tag="a" :to="{path: '/personnel-list', query: {mode: 0}}">招揽人才</router-link></li>
+            <li><router-link tag="a" :to="'job-list'">找工作</router-link></li>
+            <li><router-link tag="a" :to="{path: '/personnel-list', query: {mode: 1}}">中高级人才</router-link></li>
             <li><router-link tag="a" :to="'about'">关于我们</router-link></li>
         </ul>
     </div>
@@ -29,6 +29,7 @@
         },
         methods: {
             hideNav() {
+                console.log('aaa')
                 this.navShow = false
             },
             toggleNav() {
