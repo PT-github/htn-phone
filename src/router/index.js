@@ -38,10 +38,22 @@ export default new Router({
             meta: {title: '招揽人才', keepAlive: true}
         },
         {
+            path: '/job-list',
+            component: _import('job/job-list'),
+            name: 'jobList',
+            meta: {title: '找工作', keepAlive: true}
+        },
+        {
             path: '/resume-detail/:id',
             component: _import('job/resume-detail'),
             name: 'resumeDetail',
             meta: {title: '简历详情', keepAlive: false}
+        },
+        {
+            path: '/job-detail/:id',
+            component: _import('job/job-detail'),
+            name: 'jobDetail',
+            meta: {title: '职位详情', keepAlive: false}
         },
         {
             path: '/about',
