@@ -152,12 +152,12 @@ export default {
                 expectedArea: '湖南长沙',
                 postTime: '一个月后',
                 handsOnWorkExperience: [
-                    {id: 1, entryTime: '2018年1月',departureTime: '2018年2月','company': '湖南XXX公司', job: '高级软件开发工程师', jobDes: '工作的一些描述', reseanForLeaving: '个人原因'},
-                    {id: 2, entryTime: '2018年2月',departureTime: '2018年3月','company': '湖南AAA公司', job: '中级软件开发工程师', jobDes: '工作的一些描述22', reseanForLeaving: '个人原因'},
+                  {id: 1, entryTime: '2018年1月',departureTime: '2018年2月',company: '湖南XXX公司', job: '高级软件开发工程师', jobDes: '工作的一些描述', reseanForLeaving: '个人原因'},
+                  {id: 2, entryTime: '2018年2月',departureTime: '2018年3月',company: '湖南AAA公司', job: '中级软件开发工程师', jobDes: '工作的一些描述22', reseanForLeaving: '个人原因'}
                 ],
                 educationExperience: [
-                    {id: 1, enrolmentTime: '2018年1月',graduationTime: '2018年2月','school': '湖南XXX学校', education: '本科', major: '电气自动化', professionalDes: '专业的简单描述'},
-                    {id: 2, enrolmentTime: '2018年2月',graduationTime: '2018年3月','school': '湖南BBB学校', education: '本科', major: '电气自动化', professionalDes: '专业的简单描述'}
+                  {id: 1, enrolmentTime: '2018年1月',graduationTime: '2018年2月',school: '湖南XXX学校', education: '本科', major: '电气自动化', professionalDes: '专业的简单描述'},
+                  {id: 2, enrolmentTime: '2018年2月',graduationTime: '2018年3月',school: '湖南BBB学校', education: '本科', major: '电气自动化', professionalDes: '专业的简单描述'}
                 ],
                 workingSkills: ['育婴师','催乳师','健康管理师'],
                 selfEvalution: '我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX'
@@ -292,7 +292,7 @@ export default {
             "list|10": [
                 {
                     "id|+1": 1,
-                    "name|1": ["新闻的标题","内容标题在哪里"],
+                    "title|1": ["新闻的标题","内容标题在哪里"],
                     "category": "新闻的分类",
                     "publishTime|1": ["2018-10-10 10:10:20","2015-09-09 09:09:09",],
                     "publishMan|1": ["系统管理员","国家领导人"],
