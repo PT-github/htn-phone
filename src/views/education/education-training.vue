@@ -49,7 +49,9 @@
         },
         watch: {
             active(v) {
-                if (v === 1 && this.projects.length === 0) {
+                if (v === 0 && this.category.length === 0) {
+                    this.getCategory()
+                } else if (v === 1 && this.projects.length === 0) {
                     this.getProject()
                 } else if (v === 2 && this.videoCategory.length === 0) {
                     this.getVideoCategory()
@@ -57,7 +59,15 @@
             }
         },
         mounted() {
-            this.getCategory()
+            this.active = this.$route.query.mode ? parseInt(this.$route.query.mode) : 0
+            console.log(this.active)
+            if (this.active === 0 && this.category.length === 0) {
+                this.getCategory()
+            } else if (this.active === 1 && this.projects.length === 0) {
+                this.getProject()
+            } else if (this.active === 2 && this.videoCategory.length === 0) {
+                this.getVideoCategory()
+            }
         },
         methods: {
             onClickRight() {

@@ -5,7 +5,7 @@
                 <span class="checkbox" :class="{checked: choosed.indexOf(item.id) !== -1}"></span>
             </div>
             <div class="right">
-                <router-link tag="a" :to="{ name: 'jobDetail', params: { id: item.id } }">
+                <router-link tag="a" :to="{ path: '/job-detail', query: { id: item.id } }">
                     <div class="flex">
                         <div class="flex-left">{{item.name}}</div>
                         <div class="flex-right">薪资待遇：{{item.salary}}</div>

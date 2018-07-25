@@ -50,7 +50,7 @@ export default new Router({
             meta: {title: '简历详情', keepAlive: false}
         },
         {
-            path: '/job-detail/:id',
+            path: '/job-detail',
             component: _import('job/job-detail'),
             name: 'jobDetail',
             meta: {title: '职位详情', keepAlive: false}
@@ -59,7 +59,7 @@ export default new Router({
             path: '/education-training',
             component: _import('education/education-training'),
             name: 'educationTraining',
-            meta: {title: '教育培训', keepAlive: true}
+            meta: {title: '教育培训', keepAlive: false}
         },
         {
             path: '/about',

@@ -29,7 +29,6 @@
         },
         methods: {
             hideNav() {
-                console.log('aaa')
                 this.navShow = false
             },
             toggleNav() {

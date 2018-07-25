@@ -1,14 +1,16 @@
 <template>
     <div class="hunters lr clearfix" v-if="list.length > 0">
         <div class="hunter-item" v-for="(item, index) in list" :key="'s-hunters' + index">
-            <div class="flex">
-                <div class="flex-left">{{ item.job }}</div>
-                <div class="flex-right">{{ item.salary }}</div>
-            </div>
-            <div class="flex flex2">
-                <div class="flex-left">{{ item.name }}</div>
-                <div class="flex-right">{{ item.place }}</div>
-            </div>
+            <router-link tag="a" :to="{path: '/job-detail', query: { id: item.id }}">
+                <div class="flex">
+                    <div class="flex-left">{{ item.job }}</div>
+                    <div class="flex-right">{{ item.salary }}</div>
+                </div>
+                <div class="flex flex2">
+                    <div class="flex-left">{{ item.name }}</div>
+                    <div class="flex-right">{{ item.place }}</div>
+                </div>
+            </router-link>
         </div>
     </div>
 </template>
@@ -36,6 +38,9 @@
             border: 1px solid #dadada;
             padding: 4px;
             border-radius: 2px;
+            a {
+                display: block;
+            }
             .flex {
                 display: flex;
                 height: 20px;

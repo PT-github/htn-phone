@@ -450,6 +450,7 @@ export default {
                     "id|+1": 1,
                     "name|1": ["腾讯","百度","搜狐"],
                     "imgUrl": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg",
+                    "link": "http://www.baidu.com"
                 }
             ]
         })
@@ -488,7 +489,10 @@ export default {
             "list|6": [
                 {
                     "id|+1": 1,
-                    "name|1": ["健康管理咨询师XXX","育婴师XXXXXXXXX","理疗师XXXXXXXXXX"]
+                    "job|1": ["健康管理咨询师","育婴师","理疗师"],
+                    "name|1": ["湖南省健康管理公司", "湖南省健康管理公司2", "湖南省健康管理公司3", "湖南省健康管理公司4"],
+                    "salary|1": ["1.5万-2.5万/月","1万/月","2万/月"],
+                    "place|1": ["长沙","株洲","常德"],
                 }
             ]
         })

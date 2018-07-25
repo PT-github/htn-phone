@@ -1,6 +1,7 @@
 <template>
     <ul class="links lr clearfix" v-if="list.length > 0">
-        <li class="talents-item" :style="{backgroundImage: 'url(' + item.imgUrl + ')'}" v-for="(item, index) in list" :key="'s-links' + index">
+        <li class="talents-item" v-for="(item, index) in list" :key="'s-links' + index">
+            <a :href="item.link" :style="{backgroundImage: 'url(' + item.imgUrl + ')'}"></a>
         </li>
     </ul>
 </template>
@@ -25,12 +26,17 @@
             margin-right: 2%;
             margin-bottom: 5px;
             height: 35px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center center;
             float: left;
             background-color: rgba(204, 204, 204, .3);
-            border-radius: 2px;
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+                border-radius: 2px;
+            }
             &:nth-child(2n) {
                 margin-right: 0;
             }

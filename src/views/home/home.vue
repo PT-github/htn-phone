@@ -5,17 +5,17 @@
             <s-slider :list="posters"></s-slider>
             <s-title :link="'news-home'">新闻中心</s-title>
             <s-news :list="newsList"></s-news>
-            <s-title :link="'news-list2'">课程培训</s-title>
+            <s-title :link="'education-training'" :query="{mode: 0}">课程培训</s-title>
             <s-lessons :list="lessons"></s-lessons>
-            <s-title :link="'teachers'">优秀导师</s-title>
+            <s-title  :link="'education-training'" :query="{mode: 3}">优秀导师</s-title>
             <s-teachers :list="teachers"></s-teachers>
-            <s-title :link="'video'">视频在线看</s-title>
+            <s-title  :link="'education-training'" :query="{mode: 2}">视频在线看</s-title>
             <s-video :list="videos"></s-video>
-            <s-title :link="'hunter'">热门招聘单位</s-title>
-            <s-hunters :list="hunters"></s-hunters>
-            <s-title :link="'job'">热门职位</s-title>
-            <s-jobs :list="jobs"></s-jobs>
-            <s-title :link="'talents'">人才列表</s-title>
+            <s-title :link="'job-list'">热门职位</s-title>
+            <s-hunters :list="jobs"></s-hunters>
+            <s-title :link="'job-list'"  :showMore="false">热门单位</s-title>
+            <s-jobs :list="hunters"></s-jobs>
+            <s-title :link="'personnel-list'" :query="{mode: 0}">人才列表</s-title>
             <s-talents :list="talents"></s-talents>
             <s-title :showMore="false">友情链接</s-title>
             <s-links :list="links"></s-links>
