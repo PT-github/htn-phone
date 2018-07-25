@@ -131,7 +131,7 @@
                 </div>
             </div>
             <div class="title">工作技能</div>
-            <div class="content" v-if="resume.workingSkills">{{ resume.workingSkills.join(',') }}</div>
+            <div class="content" v-if="resume.workingSkills">{{ resume.workingSkills }}</div>
             <div class="title">自我评价</div>
             <div class="content">{{ resume.selfEvalution }}</div>
         </div>

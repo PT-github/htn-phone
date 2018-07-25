@@ -9,7 +9,7 @@
         </div>
         <div class="project-box" v-show="active === 1">
             <ul class="projectList">
-                <li class="projectList-li" v-for="item in projects" :key="'project' + item.id">{{ item.title }}</li>
+                <li class="projectList-li" v-for="item in projects" :key="'project' + item.id">{{ item.name }}</li>
             </ul>
         </div>
         <div class="video-box" v-show="active === 2">
