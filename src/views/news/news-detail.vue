@@ -12,11 +12,6 @@
     import { Toast } from 'vant'
     export default {
         name: 'newsDetail',
-        computed: {
-            newsId() {
-                return this.$route.params.newsId
-            }
-        },
         data() {
             return {
                 title: '',
@@ -24,12 +19,12 @@
             }
         },
         mounted() {
-            this.getNewsDetail(this.$route.query.id)
+            this.getNewsDetail()
         },
         methods: {
             getNewsDetail() {
                 Toast.loading()
-                queryNewsDetail({ id: this.newsId }).then((res) => {
+                queryNewsDetail({ id: this.$route.query.id }).then((res) => {
                     Toast.clear()
                     this.title = res.data.title
                     this.content = res.data.content

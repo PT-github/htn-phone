@@ -9,7 +9,9 @@
         </div>
         <div class="project-box" v-show="active === 1">
             <ul class="projectList">
-                <li class="projectList-li" v-for="item in projects" :key="'project' + item.id">{{ item.name }}</li>
+                <li class="projectList-li" v-for="item in projects" :key="'project' + item.id">
+                    <router-link tag="a" :to="{ path: '/project-detail', query: {id: item.id} }">{{ item.title }}</router-link>
+                </li>
             </ul>
         </div>
         <div class="video-box" v-show="active === 2">
@@ -71,7 +73,7 @@
         },
         methods: {
             onClickRight() {
-                Toast('网上报名')
+                this.$router.push({path: '/signUp-online'})
             },
             getVideoCategory() {
                 Toast.loading()
@@ -123,6 +125,10 @@
             font-size: 14px;
             border-bottom: 1px solid #CCC;
             padding-left: 6px;
+            a {
+                display: block;
+                color: #333;
+            }
         }
     }
 </style>

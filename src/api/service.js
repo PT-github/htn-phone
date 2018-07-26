@@ -57,7 +57,22 @@ export function queryFriendShips() {
 		method: 'post'
 	})
 }
-
+// 课程详情
+export function queryLessonDetail(data) {
+    return request({
+        url: '/lesson/queryLessonDetail',
+        method: 'post',
+        data
+    })
+}
+// 培训项目详情
+export function queryProjectDetail(data) {
+    return request({
+        url: '/train/queryProjectDetail',
+        method: 'post',
+        data
+    })
+}
 // 首页视频列表
 export function queryVideos() {
 	return request({
@@ -160,6 +175,24 @@ export function queryTeachersByPage(data) {
         url: '/teacher/queryTeacherList',
         method: 'post',
         data: data
+    })
+}
+// 通过分类获取视频列表
+export function searchByKeywords(keywords) {
+    return request({
+        url: '/home/searchByKeywords',
+        method: 'post',
+        data: {
+            keywords: keywords
+        }
+    })
+}
+// 证书查询
+export function queryCerti(data) {
+    return request({
+        url: '/cert/queryCertificate',
+        method: 'post',
+        data
     })
 }
 // 获取分类列表

@@ -20,13 +20,49 @@ export default new Router({
             meta: {title: '新闻中心', keepAlive: true}
         },
         {
+            path: '/lesson-detail',
+            component: _import('education/lesson-detail'),
+            name: 'lessonDetail',
+            meta: {title: '课程详情', keepAlive: false}
+        },
+        {
+            path: '/project-detail',
+            component: _import('education/project-detail'),
+            name: 'projectDetail',
+            meta: {title: '项目详情', keepAlive: false}
+        },
+        {
+            path: '/signUp-online',
+            component: _import('education/signUp-online'),
+            name: 'signUpOnline',
+            meta: {title: '在线报名', keepAlive: false}
+        },
+        {
+            path: '/certifate-query',
+            component: _import('home/certifate-query'),
+            name: 'certifateQuery',
+            meta: {title: '证书查询', keepAlive: false}
+        },
+        {
+            path: '/search-result',
+            component: _import('home/search-result'),
+            name: 'searchResult',
+            meta: {title: '搜索', keepAlive: true}
+        },
+        {
+            path: '/teacher-detail',
+            component: _import('education/teacher-detail'),
+            name: 'teacherDetail',
+            meta: {title: '教师详情', keepAlive: false}
+        },
+        {
             path: '/news-list',
             component: _import('news/news-list'),
             name: 'newsList',
             meta: {title: '新闻分类列表', keepAlive: false}
         },
         {
-            path: '/news-detail/:newsId',
+            path: '/news-detail',
             component: _import('news/news-detail'),
             name: 'newsDetail',
             meta: {title: '新闻详情', keepAlive: false}
@@ -44,7 +80,7 @@ export default new Router({
             meta: {title: '找工作', keepAlive: true}
         },
         {
-            path: '/resume-detail/:id',
+            path: '/resume-detail',
             component: _import('job/resume-detail'),
             name: 'resumeDetail',
             meta: {title: '简历详情', keepAlive: false}

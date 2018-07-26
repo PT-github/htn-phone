@@ -1,7 +1,7 @@
 <template>
     <ul class="news-list lr" v-if="list.length > 0">
         <li class="news-list-item" v-for="(item, index) in list" :key="'news-list' + index">
-            <router-link tag="a" :to="{ name: 'newsDetail', params: { newsId: item.id } }">{{ item.name }}
+            <router-link tag="a" :to="{ path: '/news-detail', query: { id: item.id } }">{{ item.name }}
             <span class="arrow"><van-icon name="arrow" /></span></router-link>
         </li>
     </ul>

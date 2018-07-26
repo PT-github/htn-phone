@@ -1,7 +1,7 @@
 <template>
     <div class="news lr" v-if="list.length > 0">
         <div class="part-01">
-            <router-link tag="a" :to="{ name: 'newsDetail', params: {newsId: list[0].id} }">
+            <router-link tag="a" :to="{ path: '/news-detail', query: {id: list[0].id} }">
                 <div class="left">
                     <div class="pic">
                         <img :src="list[0].imgUrl" :alt="list[0].name">

@@ -3,12 +3,14 @@
         <van-list v-model="loading" :finished="finished" @load="onLoad">
             <ul class="lessonList">
                 <li class="lessonItem" v-for="item in list" :key="item.id + '-lesson-' + category">
-                    <div class="lessonItem-l name">{{ item.name }}</div>
-                    <div class="lessonItem-l openDate"><span class="label">开&nbsp;&nbsp;班&nbsp;&nbsp;时&nbsp;&nbsp;间：</span>{{ item.openDate }}</div>
-                    <div class="lessonItem-l classHour"><span class="label">课&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时：</span>{{ item.classHour }}</div>
-                    <div class="lessonItem-l tranningFee"><span class="label">培&nbsp;&nbsp;训&nbsp;&nbsp;费&nbsp;&nbsp;用：</span>{{ item.tranningFee }}</div>
-                    <div class="lessonItem-l examinationFee"><span class="label">考试及资料费：</span>{{ item.examinationFee }}</div>
-                    <div class="lessonItem-l totalFee"><span class="label">合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计：</span>{{ item.totalFee }}</div>
+                    <router-link tag="a" :to="{path: '/lesson-detail', query: { id: item.id }}">
+                        <div class="lessonItem-l name">{{ item.name }}</div>
+                        <div class="lessonItem-l openDate"><span class="label">开&nbsp;&nbsp;班&nbsp;&nbsp;时&nbsp;&nbsp;间：</span>{{ item.openDate }}</div>
+                        <div class="lessonItem-l classHour"><span class="label">课&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时：</span>{{ item.classHour }}</div>
+                        <div class="lessonItem-l tranningFee"><span class="label">培&nbsp;&nbsp;训&nbsp;&nbsp;费&nbsp;&nbsp;用：</span>{{ item.tranningFee }}</div>
+                        <div class="lessonItem-l examinationFee"><span class="label">考试及资料费：</span>{{ item.examinationFee }}</div>
+                        <div class="lessonItem-l totalFee"><span class="label">合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计：</span>{{ item.totalFee }}</div>
+                    </router-link>
                 </li>
             </ul>
         </van-list>
@@ -71,6 +73,10 @@
             line-height: 22px;
             color: #666;
             border-radius: 4px;
+            a {
+                display: block;
+                color: #666;
+            }
             .name {
                 color: #666;
                 font-size: 15px;

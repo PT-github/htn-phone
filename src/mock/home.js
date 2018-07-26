@@ -292,7 +292,7 @@ export default {
             "list|10": [
                 {
                     "id|+1": 1,
-                    "title|1": ["新闻的标题","内容标题在哪里"],
+                    "name|1": ["新闻的标题","内容标题在哪里"],
                     "category": "新闻的分类",
                     "publishTime|1": ["2018-10-10 10:10:20","2015-09-09 09:09:09",],
                     "publishMan|1": ["系统管理员","国家领导人"],
@@ -529,7 +529,74 @@ export default {
                     "id|+1": 1,
                     "imgUrl": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg",
                     "name|1": ["张三", "李四", "刘文峰", "约翰"],
-                    "category|1": ["健康科学讲师","育婴师讲师","继续教育讲师"]
+                    "category|1": ["健康科学讲师","育婴师讲师","继续教育讲师"],
+                    "des": '描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述'
+                }
+            ]
+        })
+    },
+
+    /**
+     * 导师详情
+     * @returns {*}
+     */
+    queryTeacherDetail: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                "id|+1": 1,
+                "imgUrl": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg",
+                "name|1": ["张三", "李四", "刘文峰", "约翰"],
+                "category|1": ["健康科学讲师","育婴师讲师","继续教育讲师"],
+                "des": '描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述'
+            }
+        })
+    },
+    /**
+     * 证书查询结果
+     * @returns {*}
+     */
+    queryCertificate: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                "id|+1": 1,
+                "username|1": ["张三", "李四", "王五"],
+                "sex|1": ['男', '女'],
+                "certId|1": ["430XXXXXXXXXXXXX", "520XXXXXXXXXXXXXXX"],
+                "birth|1": ["2011-03-19", "2012-10-08"],
+                "imgUrl|1" : ["http://www.hnjkfwy.com/upload/day_180520/201805201139129214.jpg", "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"],
+                "certifications|2": [{
+                    "id|+1": 10,
+                    "cerType": "岗位能力培训证书",
+                    "cerName": "中医康复理疗",
+                    "cerNo": "xxxxxxxxxxxxxx",
+                    "cerLevel": "高级",
+                    "cerReport": "合格",
+                    "education": "大专",
+                    "getCerTime": "2016-10-09",
+                    "issuingAgency": "国家卫生计生委能力剑圣和继续教育中心，中国健康促进基金会",
+                    "remark": "《健康服务业岗位能力培新合格证书》XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                }]
+            }
+        })
+    },
+
+    /**
+     * 通过关键字获取搜索列表
+     * @returns {*}
+     */
+    searchByKeywords: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list|20": [
+                {
+                    "id|+1": 1,
+                    "name|1": ["名称名称名称名称名称名称", "名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称", "名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称名称"],
+                    "type|1": [0, 1, 2, 3, 4, 5]
                 }
             ]
         })
@@ -565,6 +632,36 @@ export default {
                     "name|1":["健康管理师", "育婴师", "心理咨询师", "催乳师", "继续教育"]
                 }
             ]
+        })
+    },
+    /**
+     * 课程详情列表
+     * @returns {*}
+     */
+    queryLessonDetail: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                "id|+1": 1,
+                "title|1": ["课程的标题", "课程的标题2"],
+                "content": "<p>AAAAAAAAAAAAA<br/>BBBBBBBBBBBBBBB<br/>CCCCCCCCCC</p>"
+            }
+        })
+    },
+    /**
+     * 培训项目详情
+     * @returns {*}
+     */
+    queryProjectDetail: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                "id|+1": 1,
+                "title|1": ["培训项目的标题", "培训项目的标题2"],
+                "content": "<p>AAAAAAAAAAAAA<br/>BBBBBBBBBBBBBBB<br/>CCCCCCCCCC</p>"
+            }
         })
     },
     /**

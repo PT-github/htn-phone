@@ -2,7 +2,7 @@
     <div class="teachers lr" v-if="list.length > 0">
         <ul class="teachers-list">
             <li v-for="(item, index) in list" :key="'s-lesson-' + index">
-                <router-link tag="a" :to="{path: 'lesson-detail', params: { id: item.id }}">
+                <router-link tag="a" :to="{path: '/education-training', query: { mode: 3 }}">
                     <div class="pic">
                         <img :src="item.imgUrl" :alt="item.name">
                         <span>{{ item.category }}</span>

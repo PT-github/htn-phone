@@ -3,7 +3,7 @@
         <div class="left" @click="toggleNav">
             <span>导航</span>
         </div>
-        <div class="center">
+        <div class="center" @click="goSearch">
             <span>输入搜索关键词</span>
         </div>
         <div class="right">
@@ -15,6 +15,7 @@
             <li><router-link tag="a" :to="{path: '/personnel-list', query: {mode: 0}}">招揽人才</router-link></li>
             <li><router-link tag="a" :to="'job-list'">找工作</router-link></li>
             <li><router-link tag="a" :to="{path: '/personnel-list', query: {mode: 1}}">中高级人才</router-link></li>
+            <li><router-link tag="a" :to="{path: '/certifate-query'}">证书查询</router-link></li>
             <li><router-link tag="a" :to="'about'">关于我们</router-link></li>
         </ul>
     </div>
@@ -33,6 +34,9 @@
             },
             toggleNav() {
                 this.navShow = !this.navShow
+            },
+            goSearch() {
+                this.$router.push('/search-result')
             }
         }
     }
