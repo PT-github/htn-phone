@@ -5,13 +5,52 @@ const _import = require('./_import_' + process.env.NODE_ENV)
 Vue.use(Router)
 // import Layout from '../views/layout/layout'
 
-export default new Router({
+const router =  new Router({
     routes: [
         {
             path: '',
             component: _import('home/home'),
             name: 'home',
             meta: {title: '首页', keepAlive: true}
+        },
+        {
+            path: '/login',
+            component: _import('user/login'),
+            name: 'login',
+            meta: {title: '登录', keepAlive: false}
+        },
+        {
+            path: '/individual-member',
+            component: _import('user/individual-member'),
+            name: 'individualMember',
+            meta: {title: '个人会员', keepAlive: false, needLogin: true}
+        },
+        {
+            path: '/enterpise-member',
+            component: _import('user/enterpise-member'),
+            name: 'enterpiseMember',
+            meta: {title: '企业会员', keepAlive: false, needLogin: true},
+            redirect: '/enterpise-member/enterpise-baseinfo',
+            children: [
+                {
+                    path: '/enterpise-member/enterpise-baseinfo',
+                    component: _import('user/components/enterpise-baseinfo'),
+                    name: 'sBaseInfo',
+                    meta: {title: '基本信息', keepAlive: false, needLogin: true}
+                },
+                {
+                    path: '/enterpise-member/job-interview-man',
+                    component: _import('user/components/job-interview-man'),
+                    name: 'jobInterviewMan',
+                    meta: {title: '基本信息', keepAlive: false, needLogin: true}
+                }
+            ]
+        },
+        {
+            path: '/reg',
+            component: _import('user/reg'),
+            name: 'reg',
+            meta: {title: '注册', keepAlive: false}
         },
         {
             path: '/news-home',
@@ -105,3 +144,12 @@ export default new Router({
         }
     ]
 })
+router.beforeEach((to, from, next) => {
+    if (to.meta.needLogin && !sessionStorage.getItem("userInfo")) {
+        next({path: "/login"});
+    } else {
+        next()
+    }
+})
+
+export default router

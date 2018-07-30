@@ -12,14 +12,24 @@ export function login(username, password, type) {
       data
     })
 }
+export function loginByCode(code) {
+    return request({
+      url: '/user/loginByCode',
+      method: 'post',
+      params: {code}
+    })
+}
 
-export function logout(username, sessionId) {
-    const data = {
-        username,
-        sessionId
-    }
+export function logout(account) {
     return request({
         url: '/user/logout',
+        method: 'post',
+        params: {account}
+    })
+}
+export function regAction(data) {
+    return request({
+        url: '/user/regAction',
         method: 'post',
         data
     })

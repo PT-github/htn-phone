@@ -275,8 +275,143 @@ export default {
             "message": '成功',
             "data": {
                 "id|+1": 1,
-                "nickname|1": ["张三","李四"],
-                "type": 1
+                "nickname|1": ["张三AAA", "李四BBB"],
+                "account": "account",
+                "tel": "18522222222",
+                "type": 2
+            }
+        })
+    },
+    modifyCompanyPassword: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功'
+        })
+    },
+    /**
+     * 企业职位查询
+     * @returns {*}
+     */
+    queryPubJobs: () => {
+        // 状态 0 未发布 1 已发布 2 已撤回 3 已删除
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list|2": [
+                { id: 1, job: '职位名称0', lookNums: '1000', applyNums: '300', status: '未发布',statusCode: 0, pubTime: '2010-10-10 13:10:10' },
+                { id: 2, job: '职位名称1', lookNums: '1000', applyNums: '500', status: '已发布',statusCode: 1, pubTime: '2010-10-10 13:10:10' },
+                { id: 3, job: '职位名称2', lookNums: '1000', applyNums: '10', status: '已撤回',statusCode: 2, pubTime: '2010-10-10 13:10:10' },
+                { id: 4, job: '职位名称3', lookNums: '1000', applyNums: '20', status: '已删除',statusCode: 3, pubTime: '2010-10-10 13:10:10' }
+            ]
+        })
+    },
+    /**
+     * 应聘记录
+     * @returns {*}
+     */
+    queryApplyRecordList: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, job: '职位名称0', name: '张三', status: '已面试', date: '2010-10-10 13:10:10' },
+                { id: 2, job: '职位名称1', name: '李四', status: '未面试', date: '2010-10-10 13:10:10' },
+                { id: 3, job: '职位名称2', name: '王五', status: '已面试', date: '2010-10-10 13:10:10' },
+                { id: 4, job: '职位名称3', name: '小花', status: '已面试', date: '2010-10-10 13:10:10' },
+                { id: 5, job: '职位名称4', name: '小狗', status: '已面试', date: '2010-10-10 13:10:10' }
+            ]
+        })
+    },
+    /**
+     * 自有人才库
+     * @returns {*}
+     */
+    queryOwnTalentList: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, education: '本科', name: '张三', status: '找工作中', workExperience: '10年' },
+                { id: 2, education: '本科', name: '李四', status: '正在工作中', workExperience: '10年' },
+                { id: 3, education: '本科', name: '王五', status: '观望中', workExperience: '10年' },
+                { id: 4, education: '本科', name: '小花', status: '找工作中', workExperience: '10年' },
+                { id: 5, education: '本科', name: '小狗', status: '找工作中', workExperience: '10年' }
+            ]
+        })
+    },
+    /**
+     * 网站人才库
+     * @returns {*}
+     */
+    queryNetWorkTalentList: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, education: '博士', name: '张三', status: '找工作中', workExperience: '10年' },
+                { id: 2, education: '博士', name: '李四', status: '正在工作中', workExperience: '10年' },
+                { id: 3, education: '博士', name: '王五', status: '观望中', workExperience: '10年' },
+                { id: 4, education: '博士', name: '小花', status: '找工作中', workExperience: '10年' },
+                { id: 5, education: '博士', name: '小狗', status: '找工作中', workExperience: '10年' }
+            ]
+        })
+    },
+    /**
+     * 企业面试记录
+     * @returns {*}
+     */
+    queryInterviewList: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, name: 'XXXXXXX', job: '育婴师', status: '已经面试', interviewTime: '2010-10-10 13:10:10' },
+                { id: 2, name: 'XXXXXXX', job: '健康管理师', status: '面试成功', interviewTime: '2010-10-10 13:10:10' },
+                { id: 3, name: 'XXXXXXX', job: '催乳师', status: '面试失败', interviewTime: '2010-10-10 13:10:10' },
+                { id: 4, name: 'XXXXXXX', job: '继续教育', status: '已删除', interviewTime: '2010-10-10 13:10:10' },
+                { id: 5, name: 'XXXXXXX', job: '育婴师', status: '已经面试', interviewTime: '2010-10-10 13:10:10' }
+            ]
+        })
+    },
+    /**
+     * 企业收藏记录
+     * @returns {*}
+     */
+    queryCollectList: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, name: '张三', resumeName: '简历名称'},
+                { id: 2, name: '李四', resumeName: '简历名称'},
+                { id: 3, name: '张三', resumeName: '简历名称'},
+                { id: 4, name: '李四', resumeName: '简历名称'},
+                { id: 5, name: '张三', resumeName: '简历名称'},
+            ]
+        })
+    },
+    /**
+     * 企业基本信息查询
+     * @returns {*}
+     */
+    queryCompanyMessage: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                "id": 1,
+                "companyName": "XXXX公司",
+                "companySize": "1000人",
+                "natureOfCompany": "上市公司",
+                "legalPerson": "XXXXX",
+                "regSite": "湖南长沙",
+                "contact": "180XXXXXXXX",
+                "contacts": "XXXXXX",
+                "imgUrls": ["https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=287515486,199635557&fm=173&app=25&f=JPEG?w=510&h=346&s=EC32109D0E9452D24723D0DD0300E0B8","http://www.hnjkfwy.com/upload/day_180520/201805201139129214.jpg", "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"],
+                "businessLicense": ["http://www.hnjkfwy.com/upload/day_180520/201805201139129214.jpg", "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=287515486,199635557&fm=173&app=25&f=JPEG?w=510&h=346&s=EC32109D0E9452D24723D0DD0300E0B8","http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"],
+                "account": "xxxx@163.com",
+                "accountState": "有效",
+                "accountLevel": "高级认证"
             }
         })
     },

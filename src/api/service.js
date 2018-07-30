@@ -256,8 +256,167 @@ export function queryResumeDetail(params) {
 }
 // =======================招揽人才结束=========================
 
+// 企业基本查询
+export function queryCompanyMessage(id) {
+    return request({
+        url: '/login/company/queryCompanyMessage',
+        method: 'post',
+        data: {id}
+    })
+}
 
+// 企业密码修改
+export function modifyCompanyPassword(data) {
+    return request({
+        url: '/login/company/modifyCompanyPassword',
+        method: 'post',
+        data
+    })
+}
+// 企业职位列表
+export function queryPubJobs(data) {
+    return request({
+        url: '/login/position/queryPubJobs',
+        method: 'post',
+        data
+    })
+}
 
+// 刷新职位
+export function refreshCompanyJob(data) {
+    return request({
+        url: '/login/position/refreshCompanyJob',
+        method: 'post',
+        data
+    })
+}
+
+// 发布职位
+export function publishCompanyJob(data) {
+    return request({
+        url: '/login/position/publishCompanyJob',
+        method: 'post',
+        data
+    })
+}
+
+// 撤回职位
+export function revokeCompanyJob(data) {
+    return request({
+        url: '/login/position/revokeCompanyJob',
+        method: 'post',
+        data
+    })
+}
+
+// 删除职位
+export function deleteCompanyJob(data) {
+    return request({
+        url: '/login/position/deleteCompanyJob',
+        method: 'post',
+        data
+    })
+}
+
+// 新增职位
+export function addCompanyJob(data) {
+    return request({
+        url: '/login/position/addCompanyJob',
+        method: 'post',
+        data
+    })
+}
+
+// 面试邀请列表
+export function queryInterviewList(data) {
+    return request({
+        url: '/login/interview/queryInterviewList',
+        // url: '/login/interview/queryInterviewByCompany',
+        method: 'post',
+        data
+    })
+}
+
+// 删除面试邀请
+export function deleteInterviewById(id) {
+    return request({
+        url: '/login/interview/deleteInterviewById',
+        method: 'post',
+        data: {id}
+    })
+}
+
+// 收藏记录
+export function queryCollectList(data) {
+    return request({
+        url: '/login/vitae/queryCollectList',
+        method: 'post',
+        data
+    })
+}
+
+// 应聘记录
+export function queryApplyRecordList(data) {
+    return request({
+        url: '/login/positionapply/queryApplyRecordList',
+        method: 'post',
+        data
+    })
+}
+
+// 自有人才库
+export function queryOwnTalentList(data) {
+    return request({
+        url: '/login/talent/queryOwnTalentList',
+        method: 'post',
+        data
+    })
+}
+
+// 网站人才库
+export function queryNetWorkTalentList(data) {
+    return request({
+        url: '/login/talent/queryNetWorkTalentList',
+        method: 'post',
+        data
+    })
+}
+
+// 删除面试邀请
+export function deleteCollectById(id) {
+    return request({
+        url: '/login/vitae/deleteCollectById',
+        method: 'post',
+        data: {id}
+    })
+}
+
+// 删除应聘记录
+export function deleteApplyRecordList(id) {
+    return request({
+        url: '/login/positionapply/deleteApplyRecordList',
+        method: 'post',
+        data: {id}
+    })
+}
+
+// 删除自有人才库
+export function deleteOwnTalentList(id) {
+    return request({
+        url: '/login/talent/deleteOwnTalentList',
+        method: 'post',
+        data: {id}
+    })
+}
+
+// 删除网站人才库
+export function deleteNetWorkTalentList(id) {
+    return request({
+        url: '/login/talent/deleteNetWorkTalentList',
+        method: 'post',
+        data: {id}
+    })
+}
 // =======================找工作开始=========================
 // 分页获取工作
 export function queryJobsByPage(data) {

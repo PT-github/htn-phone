@@ -1,13 +1,13 @@
 <template>
     <div class="header">
         <div class="left" @click="toggleNav">
-            <span>导航</span>
+            <!--<span>导航</span>-->
         </div>
         <div class="center" @click="goSearch">
             <span>输入搜索关键词</span>
         </div>
-        <div class="right">
-            <span>会员</span>
+        <div class="right" @click="goMembers">
+            <!--<span>会员</span>-->
         </div>
         <ul class="nav" v-show="navShow" @click="hideNav">
             <li><router-link tag="a" :to="'news-home'">新闻中心</router-link></li>
@@ -37,6 +37,17 @@
             },
             goSearch() {
                 this.$router.push('/search-result')
+            },
+            goMembers() {
+                if (this.$store.state.user.isLogin) {
+                    if (this.$store.state.user.type === 1) {
+                        this.$router.push('/individual-member')
+                    } else {
+                        this.$router.push('/enterpise-member')
+                    }
+                } else {
+                    this.$router.push('/login')
+                }
             }
         }
     }
@@ -88,9 +99,9 @@
             position: absolute;
             top: 0;
             text-align: center;
-            background-position: center 6px;
+            background-position: center;
             background-size: 23px;
-            padding-top: 25px;
+            /*padding-top: 25px;*/
             span {
                 font-size: 12px;
                 color: #FFF;
