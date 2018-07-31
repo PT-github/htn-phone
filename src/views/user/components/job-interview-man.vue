@@ -37,6 +37,9 @@
                         </div>
                     </div>
                 </div>
+                <div class="add-btn">
+                    <router-link tag="a" :to="'/add-job'">+</router-link>
+                </div>
             </van-tab>
             <van-tab :title="'面试邀请'">
 
@@ -140,6 +143,21 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
     .enterpise-baseinfo {
         height: 100%;
+        .add-btn {
+            background-color: #f44;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 100px;
+            position: fixed;
+            right: 30px;
+            bottom: 75px;
+            a {
+                color: #FFF;
+                font-size: 30px;
+            }
+        }
         .table-box {
             border: 1px solid rgba(204, 204, 204, 0.5);
             border-radius: 5px;

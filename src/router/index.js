@@ -26,6 +26,12 @@ const router =  new Router({
             meta: {title: '个人会员', keepAlive: false, needLogin: true}
         },
         {
+            path: '/add-job',
+            component: _import('user/components/add-job'),
+            name: 'addJob',
+            meta: {title: '职位新增', keepAlive: false, needLogin: true}
+        },
+        {
             path: '/enterpise-member',
             component: _import('user/enterpise-member'),
             name: 'enterpiseMember',
