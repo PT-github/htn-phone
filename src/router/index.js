@@ -48,7 +48,19 @@ const router =  new Router({
                     path: '/enterpise-member/job-interview-man',
                     component: _import('user/components/job-interview-man'),
                     name: 'jobInterviewMan',
-                    meta: {title: '基本信息', keepAlive: false, needLogin: true}
+                    meta: {title: '职位/面试管理', keepAlive: false, needLogin: true}
+                },
+                {
+                    path: '/enterpise-member/talent-pool',
+                    component: _import('user/components/talent-pool'),
+                    name: 'talentPool',
+                    meta: {title: '企业人才库', keepAlive: false, needLogin: true}
+                },
+                {
+                    path: '/enterpise-member/website-mail',
+                    component: _import('user/components/website-mail'),
+                    name: 'websiteMail',
+                    meta: {title: '站内信', keepAlive: false, needLogin: true}
                 }
             ]
         },

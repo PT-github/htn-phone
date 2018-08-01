@@ -42,29 +42,96 @@
                 </div>
             </van-tab>
             <van-tab :title="'面试邀请'">
-
+                <div class="table-box" v-for="(item, index) in interviewList" :key="'interview-list_' + index">
+                    <div class="title">
+                        {{ item.name }}</div>
+                    <div class="flex">
+                        <div class="label">职位：</div>
+                        <div class="value">{{ item.job }}</div>
+                    </div>
+                    <div class="flex">
+                        <div class="label">状态：</div>
+                        <div class="value">{{ item.status }}</div>
+                    </div>
+                    <div class="flex">
+                        <div class="label">面试日期：</div>
+                        <div class="value">{{ item.interviewTime }}</div>
+                    </div>
+                    <div class="flex">
+                        <div class="label">操作：</div>
+                        <div class="value">
+                            <span @click="deleteInterview(item.id)">删除</span>
+                        </div>
+                    </div>
+                </div>
             </van-tab>
             <van-tab :title="'简历收藏记录'">
-
+                <div class="table-box" v-for="(item, index) in collectList" :key="'interview-list_' + index">
+                    <div class="title">
+                        <router-link tag="a" :to="{path: '/resume-detail', query: {id: item.id}}">{{ item.resumeName }}</router-link></div>
+                    <div class="flex">
+                        <div class="label">姓名：</div>
+                        <div class="value">{{ item.name }}</div>
+                    </div>
+                    <div class="flex">
+                        <div class="label">操作：</div>
+                        <div class="value">
+                            <span @click="deleteCollect(item.id)">删除</span>
+                        </div>
+                    </div>
+                </div>
             </van-tab>
         </van-tabs>
     </div>
 </template>
 <script>
     import { Tab, Tabs, Toast, Field, Button } from 'vant';
-    import { queryPubJobs, refreshCompanyJob, publishCompanyJob, revokeCompanyJob, deleteCompanyJob } from '@/api/service'
+    import { deleteInterviewById, deleteCollectById, queryCollectList, queryInterviewList, queryPubJobs, refreshCompanyJob, publishCompanyJob, revokeCompanyJob, deleteCompanyJob } from '@/api/service'
     export default {
         name: 'jobInterviewMan',
         data() {
             return  {
                 active: 0,
                 jobList: [],
+                interviewList: [],
+                collectList: []
             }
         },
         mounted() {
-            this.getData()
+            Toast.loading('加载中...')
+            Promise.all([this.getPubJobs(), this.getInterviewList(), this.getCollectList()]).then(() => {
+                this.$nextTick(() => {
+                    Toast.clear()
+                })
+            })
         },
         methods: {
+            deleteCollect(id) {
+                this.$toast.loading()
+                deleteCollectById({id}).then(res => {
+                    if (res.success) {
+                        this.$toast('取消收藏职位成功')
+                        setTimeout(() => {
+                            this.getCollectList()
+                        }, 500)
+                    } else {
+                        this.$toast('取消收藏职位失败')
+                    }
+                })
+            },
+            deleteInterview(id) {
+                this.$toast.loading()
+                deleteInterviewById({id}).then(res => {
+                    if (res.success) {
+                        this.$toast('面试记录删除成功')
+                        setTimeout(() => {
+                            this.getInterviewList()
+                        }, 500)
+                    } else {
+                        this.$toast('面试记录删除失败')
+                    }
+                })
+            },
             publishJob(id) {
                 this.$toast.loading()
                 publishCompanyJob({id}).then(res => {
@@ -119,12 +186,22 @@
 
                 })
             },
-            getData() {
-                Toast.loading('数据加载中...')
-                queryPubJobs({
+            getInterviewList() {
+                return queryInterviewList({id: this.$store.state.user.id}).then(res => {
+                    this.interviewList.splice(0, this.interviewList.length)
+                    this.interviewList.push(...res.list)
+                })
+            },
+            getCollectList() {
+                return queryCollectList({id: this.$store.state.user.id}).then(res => {
+                    this.collectList.splice(0, this.collectList.length)
+                    this.collectList.push(...res.list)
+                })
+            },
+            getPubJobs() {
+                return queryPubJobs({
                     id: this.$store.state.user.id
                 }).then(res => {
-                    Toast.clear()
                     this.jobList.splice(0, this.jobList.length)
                     if (res.list && res.list.length > 0) {
                         this.jobList.push(...res.list)

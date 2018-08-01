@@ -408,7 +408,22 @@ export function deleteOwnTalentList(id) {
         data: {id}
     })
 }
-
+// 查询消息数
+export function queryCounts(id) {
+    return request({
+        url: '/login/notice/queryCounts',
+        method: 'post',
+        data: {userId: id}
+    })
+}
+// 查询消息列表
+export function searchMail(id) {
+    return request({
+        url: '/login/notice/searchMail',
+        method: 'post',
+        data: {userId: id}
+    })
+}
 // 删除网站人才库
 export function deleteNetWorkTalentList(id) {
     return request({
