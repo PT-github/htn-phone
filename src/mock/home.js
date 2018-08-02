@@ -194,6 +194,36 @@ export default {
         })
     },
     /**
+     * 职位收藏夹
+     * @returns {*}
+     */
+    queryCollectJobs: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, job: '职位名称0', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 2, job: '职位名称1', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 3, job: '职位名称2', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 4, job: '职位名称3', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 5, job: '职位名称4', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' }
+            ]
+        })
+    },
+    queryLookedRecords: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, vitaeName: '职位名称0', lookNum: '10', companyName: '公司名称', updateTime: '2018-1-1 10:10:10', salary: '100元/小时' },
+                { id: 2, vitaeName: '职位名称1', lookNum: '10', companyName: '公司名称', updateTime: '2018-1-1 10:10:10', salary: '100元/小时' },
+                { id: 3, vitaeName: '职位名称2', lookNum: '10', companyName: '公司名称', updateTime: '2018-1-1 10:10:10', salary: '100元/小时' },
+                { id: 4, vitaeName: '职位名称3', lookNum: '10', companyName: '公司名称', updateTime: '2018-1-1 10:10:10', salary: '100元/小时' },
+                { id: 5, vitaeName: '职位名称4', lookNum: '10', companyName: '公司名称', updateTime: '2018-1-1 10:10:10', salary: '100元/小时' }
+            ]
+        })
+    },
+    /**
      * 通过分类获取视频列表----changed
      * @returns {*}
      */
@@ -278,7 +308,7 @@ export default {
                 "nickname|1": ["张三AAA", "李四BBB"],
                 "account": "account",
                 "tel": "18522222222",
-                "type": 2
+                "type": 1
             }
         })
     },
@@ -324,6 +354,50 @@ export default {
             "message": '成功',
             "data": {
                 "count": 2
+            }
+        })
+    },
+
+    /**
+     * 基本信息
+     * @returns {*}
+     */
+    queryMyBaseInfo: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                "imgUrl": "http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071011.png",
+                "nickname|1": ["张三", "李四"],
+                "account": "account",
+                "truename": "彭涛",
+                "birth": "2017-10-11",
+                "tel": "180********",
+                "telIsValidate": 1,
+                "mail": "pengtao_it@163.com",
+                "mailIsValidate": "1",
+                "bindMxChat": "1",
+                "invitedCode": "XXXX-XXXX-XXXX-XXXX"
+            }
+        })
+    },
+    /**
+     * 我的积分
+     * @returns {*}
+     */
+    queryScore: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                totalIncome: '10000',
+                scoreList: [
+                    { id: 1, score: '100', des: '因为什么获取积分的描述', time: '2017-1-1 10:10:10' },
+                    { id: 2, score: '20', des: '因为什么获取积分的描述', time: '2017-1-1 10:10:10' },
+                    { id: 3, score: '30', des: '因为什么获取积分的描述', time: '2017-1-1 10:10:10' },
+                    { id: 4, score: '40', des: '因为什么获取积分的描述', time: '2017-1-1 10:10:10' },
+                    { id: 5, score: '500', des: '因为什么获取积分的描述', time: '2017-1-1 10:10:10' }
+                ]
             }
         })
     },
@@ -857,6 +931,109 @@ export default {
                     "imgUrl": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg",
                     "name": "首届湖南“健康管理师之星”评选结果公示",
                     "desc": "首届湖南“健康管理师之星通过宣传发动、提名推荐、网络投票、微信投票首届湖南“健康管理师之星通过宣传发动、提名推荐、网络投票、微信投票"
+                }
+            ]
+        })
+    },
+    /**
+     * 我的收益
+     * @returns {*}
+     */
+    queryIncome: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "data": {
+                totalIncome: '10000元',
+                currentIncome: '0元',
+                level: '兼职/主管'
+            }
+        })
+    },/**
+     * 我的所有收益列表
+     * @returns {*}
+     */
+    queryAllIncomeList: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, money: '100元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 2, money: '100元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 3, money: '100元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 4, money: '100元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 5, money: '100元', des: '收益的描述', time: '2017-1-1 10:10:10' }
+            ]
+        })
+    },
+    /**
+     * 我的本季度收益列表
+     * @returns {*}
+     */
+    queryQuarterIncome: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, money: '200元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 2, money: '200元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 3, money: '200元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 4, money: '200元', des: '收益的描述', time: '2017-1-1 10:10:10' },
+                { id: 5, money: '200元', des: '收益的描述', time: '2017-1-1 10:10:10' }
+            ]
+        })
+    },
+    /**
+     * 职位收藏夹
+     * @returns {*}
+     */
+    queryCollectJobs: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list": [
+                { id: 1, job: '职位名称0', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 2, job: '职位名称1', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 3, job: '职位名称2', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 4, job: '职位名称3', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' },
+                { id: 5, job: '职位名称4', num: '10', company: '公司名称', place: '长沙-雨花区', salary: '100元/小时' }
+            ]
+        })
+    },
+    /**
+     * 我的简历列表
+     * @returns {*}
+     */
+    queryMyResume: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list|3-5": [
+                {
+                    "id|+1": 100,
+                    "name|1": ["简历名称", "简历名称1", "简历名称2", "简历名称3"],
+                    "openness|1": ["完全公开", "保密"]
+                }
+            ]
+        })
+    },
+    /**
+     * 积分兑换课程列表
+     * @returns {*}
+     */
+    queryScoreLessons: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list|20-30": [
+                {
+                    "id|+1": 100,
+                    "name|1": ["课程名称", "课程名称1", "课程名称2", "课程名称3"],
+                    "openDate": "03月10日-09月12日",
+                    "classHour": "18天",
+                    "score": "1000",
+                    "examinationFee": "100元",
+                    "totalFee": "1100元"
                 }
             ]
         })

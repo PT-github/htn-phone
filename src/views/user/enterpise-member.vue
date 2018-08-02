@@ -13,7 +13,7 @@
 </template>
 <script>
     import Layout from '@/views/layout/layout'
-    import { queryCounts, queryTrainingAndDemeanor, queryPoliticalAndRegulations, queryIndustryInfos, queryNoticeList, queryWorkDynamics, queryLatestNews } from '@/api/service'
+    import { queryCounts} from '@/api/service'
     import { Toast, Tabbar, TabbarItem } from 'vant'
     export default {
         name: 'individualMember',
@@ -85,6 +85,7 @@
                 }, 5000)
             },
             onClickRight() {
+                clearInterval(this.timer)
                 Toast.loading()
                 this.$store.dispatch('LogOut').then(() => {
                     Toast.clear()

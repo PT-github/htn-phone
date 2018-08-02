@@ -20,12 +20,6 @@ const router =  new Router({
             meta: {title: '登录', keepAlive: false}
         },
         {
-            path: '/individual-member',
-            component: _import('user/individual-member'),
-            name: 'individualMember',
-            meta: {title: '个人会员', keepAlive: false, needLogin: true}
-        },
-        {
             path: '/add-job',
             component: _import('user/components/add-job'),
             name: 'addJob',
@@ -62,6 +56,33 @@ const router =  new Router({
                     name: 'websiteMail',
                     meta: {title: '站内信', keepAlive: false, needLogin: true}
                 }
+            ]
+        },
+        {
+            path: '/individual-member',
+            component: _import('user/individual-member'),
+            name: 'individualMember',
+            meta: {title: '个人会员', keepAlive: false, needLogin: true},
+            redirect: '/individual-member/individual-baseinfo',
+            children: [
+                {
+                    path: '/individual-member/individual-baseinfo',
+                    component: _import('user/components/individual-baseinfo'),
+                    name: 'individualBaseInfo',
+                    meta: {title: '基本信息', keepAlive: false, needLogin: true}
+                },
+                {
+                    path: '/individual-member/talent-work',
+                    component: _import('user/components/talent-work'),
+                    name: 'jobInterviewMan',
+                    meta: {title: '简历/工作', keepAlive: false, needLogin: true}
+                },
+                // {
+                //     path: '/individual-member/video-roder',
+                //     component: _import('user/components/video-order'),
+                //     name: 'talentPool',
+                //     meta: {title: '视频订单', keepAlive: false, needLogin: true}
+                // }
             ]
         },
         {

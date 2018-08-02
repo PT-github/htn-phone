@@ -449,6 +449,58 @@ export function applyJob(data) {
         data
     })
 }
+// 职位收藏夹删除
+export function deleteCollectJobs(data) {
+    return request({
+        url: '/user/deleteCollectJobs',
+        method: 'post',
+        data
+    })
+}// 职位申请记录
+export function queryJobApplyRecods(data) {
+    return request({
+        url: '/login/positionapply/queryJobApplyRecods',
+        method: 'post',
+        data
+    })
+}
+// 职位申请记录删除
+export function deleteJobApplyRecods(data) {
+    return request({
+        url: '/user/deleteJobApplyRecods',
+        method: 'post',
+        data
+    })
+}
+// 我的面试机会
+export function queryInvitedChance(data) {
+    return request({
+        url: '/login/interview/queryInvitedChance',
+        method: 'post',
+        data
+    })
+}// 我的面试机会删除
+export function deleteInvitedChance(data) {
+    return request({
+        url: '/user/deleteInvitedChance',
+        method: 'post',
+        data
+    })
+}// 简历被查看记录
+export function queryLookedRecords(data) {
+    return request({
+        url: '/login/vitae/queryLookedRecords',
+        method: 'post',
+        data
+    })
+}// 删除简历被查看记录
+export function deleteLookedRecords(data) {
+    return request({
+        url: '/user/deleteLookedRecords',
+        method: 'post',
+        data
+    })
+}
 // 职位收藏
 export function collectJobs(data) {
     return request({
@@ -466,3 +518,102 @@ export function queryJobDetail(data) {
     })
 }
 // =======================找工作结束=========================
+
+
+// 我的基本信息
+export function queryMyBaseInfo(data) {
+    return request({
+        url: '/login/user/queryMyBaseInfo',
+        method: 'post',
+        data
+    })
+}
+// 我的积分
+export function queryScore(data) {
+    return request({
+        url: '/login/score/queryScore',
+        method: 'post',
+        data
+    })
+}
+
+// 积分兑换的课程列表
+export function queryScoreLessons() {
+    return request({
+        url: '/home/queryScoreLessons',
+        method: 'post'
+    })
+}
+
+// 积分兑换课程
+export function exchangeLesson(data) {
+    return request({
+        url: '/home/exchangeLesson',
+        method: 'post',
+        data
+    })
+}
+// 我的收益
+export function queryIncome(data) {
+    return request({
+        url: '/login/income/queryIncome',
+        method: 'post',
+        data
+    })
+}
+// 我的所有收益列表
+export function queryAllIncomeList(data) {
+    return request({
+        url: '/login/income/queryAllIncomeList',
+        method: 'post',
+        data
+    })
+}
+// 我的简历
+export function queryMyResume(data) {
+    return request({
+        url: '/login/vitae/queryMyResume',
+        method: 'post',
+        data
+    })
+}
+// 我的本季度收益列表
+export function queryQuarterIncome(data) {
+    return request({
+        url: '/login/income/queryQuarterIncome',
+        method: 'post',
+        data
+    })
+}
+// 刷新简历
+export function refreshMyResume(data) {
+    return request({
+        url: '/login/vitae/refreshMyResume',
+        method: 'post',
+        data
+    })
+}
+// 刷新简历
+export function editResumeSubmit(data) {
+    return request({
+        url: '/member/editResumeSubmit',
+        method: 'post',
+        data
+    })
+}
+// 删除简历
+export function deleteMyResume(data) {
+    return request({
+        url: '/login/vitae/deleteMyResume',
+        method: 'post',
+        data
+    })
+}
+// 职位收藏夹
+export function queryCollectJobs(data) {
+    return request({
+        url: '/login/position/queryCollectJobs',
+        method: 'post',
+        data
+    })
+}
