@@ -16,7 +16,7 @@
         <ul class="part-02 clearfix">
             <template v-for="(item, index) in list">
                 <template v-if="index > 0">
-                    <li><router-link tag="a" :to="{name: 'newsDetail', params: { newsId: item.id }}">{{ item.name }}</router-link></li>
+                    <li><router-link tag="a" :to="{name: 'newsDetail', query: { id: item.id }}">{{ item.name }}</router-link></li>
                 </template>
             </template>
         </ul>

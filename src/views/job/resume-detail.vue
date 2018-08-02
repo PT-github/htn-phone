@@ -154,7 +154,7 @@
         methods: {
             getResumeDetail() {
                 Toast.loading()
-                queryResumeDetail({id: this.$route.params.id}).then((response) => {
+                queryResumeDetail({id: this.$route.query.id}).then((response) => {
                     Toast.clear()
                     if (response.success) {
                         this.resume = response.data

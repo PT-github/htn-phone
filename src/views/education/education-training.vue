@@ -10,7 +10,7 @@
         <div class="project-box" v-show="active === 1">
             <ul class="projectList">
                 <li class="projectList-li" v-for="item in projects" :key="'project' + item.id">
-                    <router-link tag="a" :to="{ path: '/project-detail', query: {id: item.id} }">{{ item.title }}</router-link>
+                    <router-link tag="a" :to="{ path: '/project-detail', query: {id: item.id} }">{{ item.name }}</router-link>
                 </li>
             </ul>
         </div>
