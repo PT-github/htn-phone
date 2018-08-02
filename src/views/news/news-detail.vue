@@ -60,5 +60,20 @@
     }
 </style>
 <style rel="stylesheet/scss" lang="scss">
+  img { -ms-interpolation-mode: bicubic; }
+
+  img { width: 100%; }
+  html,body{
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+  }
+  #content{
+    width:90%;
+    height:100%;
+    padding:0;
+    margin:10px auto;
+  }
 </style>
 
