@@ -61,7 +61,7 @@
                 url += '?appid=APPID'
                 url += '&redirect_uri=' + escape(window.location.host + '/#/Auth')
                 url += '&response_type=code'
-                url += '&scope=snsapi_userinfo'
+                url += '&scope=snsapi_base'
                 url += '&state=STATE#wechat_redirect'
                 window.location.href = url
             }

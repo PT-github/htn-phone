@@ -30,6 +30,7 @@ Mock.mock(/\/user\/regAction$/, 'post', api.login)
 Mock.mock(/\/user\/logout/, 'post', api.login)
 Mock.mock(/\/cert\/queryCertificate$/, 'post', api.queryCertificate)
 Mock.mock(/\/home\/searchByKeywords/, 'post', api.searchByKeywords)
+Mock.mock(/\/comments\/leaveMessgage/, 'post', api.searchByKeywords)
 // 教育培训
 Mock.mock(/\/queryLessonCategory$/, 'post', api.queryLessonCategory)
 Mock.mock(/\/queryLessonByCategory$/, 'post', api.queryLessonByCategory)
@@ -43,15 +44,15 @@ Mock.mock(/\/queryTeacherDetail$/, 'post', api.queryTeacherDetail)
 // 招聘人才
 Mock.mock(/\/talent\/queryFilterOptions/, 'post', api.queryFilterOptions)
 Mock.mock(/\/talent\/queryResume$/, 'post', api.queryResume)
-Mock.mock(/\/personel\/invateInterViewByIds/, 'post', api.invateInterViewByIds)
-Mock.mock(/\/personel\/collectResumesByIds/, 'post', api.collectResumesByIds)
+Mock.mock(/\/talent\/invateInterViewByIds/, 'post', api.invateInterViewByIds)
+Mock.mock(/\/talent\/collectResumesByIds/, 'post', api.collectResumesByIds)
 Mock.mock(/\/talent\/queryResumeDetail/, 'post', api.queryResumeDetail)
 
 
 // 找工作
 Mock.mock(/\/position\/queryJobsByPage/, 'post', api.queryJobsByPage)
 Mock.mock(/\/personel\/applyJob/, 'post', api.invateInterViewByIds)
-Mock.mock(/\/personel\/collectJobs/, 'post', api.invateInterViewByIds)
+Mock.mock(/\/position\/collectJobs/, 'post', api.invateInterViewByIds)
 Mock.mock(/\/position\/queryJobDetail/, 'post', api.queryJobDetail)
 
 
@@ -95,3 +96,6 @@ Mock.mock(/\/interview\/queryInvitedChance/, 'post', api.queryCollectJobs)
 Mock.mock(/\/user\/deleteInvitedChance/, 'post', api.queryCollectJobs)
 Mock.mock(/\/vitae\/queryLookedRecords/, 'post', api.queryLookedRecords)
 Mock.mock(/\/user\/deleteLookedRecords/, 'post', api.queryCollectJobs)
+Mock.mock(/\/order\/queryMyOrder/, 'post', api.queryMyOrder)
+Mock.mock(/\/user\/deleteOrder/, 'post', api.queryMyOrder)
+Mock.mock(/\/signup\/signUpOnlineAction$/, 'post', api.queryVideos)

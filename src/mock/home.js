@@ -145,7 +145,7 @@ export default {
                 technicalTitle: '高级软件开发工程师',
                 secondMajor: '育婴师',
                 placeResidence: '湖南省长沙市天心区',
-                jobIntention: ['育婴师', '健康管理师'],
+                'jobIntention|1': ['育婴师', '健康管理师'],
                 salaryType: '按月',
                 expectSalary: '1W/月',
                 job: '高级育婴师',
@@ -159,7 +159,7 @@ export default {
                   {id: 1, enrolmentTime: '2018年1月',graduationTime: '2018年2月',school: '湖南XXX学校', education: '本科', major: '电气自动化', professionalDes: '专业的简单描述'},
                   {id: 2, enrolmentTime: '2018年2月',graduationTime: '2018年3月',school: '湖南BBB学校', education: '本科', major: '电气自动化', professionalDes: '专业的简单描述'}
                 ],
-                workingSkills: ['育婴师','催乳师','健康管理师'],
+                workingSkills: "育婴师、催乳师、健康管理师",
                 selfEvalution: '我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX，我是一个XXXXXXXXXXXXXXXXXXXXXXXXXXXX，我是一个XXX'
             }
         })
@@ -239,6 +239,25 @@ export default {
                     "click|1": [100,200,300,400],
                     "detail": "介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息",
                     "imgUrl|1": ["http://www.hnjkfwy.com/upload/day_180520/201805201139129214.jpg","http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"],
+                    "videoUrl|1": ["http://www.w3school.com.cn/i/movie.ogg", "http://vjs.zencdn.net/v/oceans.mp4"],
+                    "videoPic": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"
+                }
+            ]
+        })
+    },
+    /**
+     * 我的订单
+     * @returns {*}
+     */
+    queryMyOrder: () => {
+        return Mock.mock({
+            'success': true,
+            "message": '成功',
+            "list|10": [
+                {
+                    "id|+1": 1,
+                    "content|1": ["课程名称一", "课程名称2", "课程名称3"],
+                    "updateTime|1": ["2017-10-10 12:30:10", "2013-10-10 12:30:10", "2011-10-10 12:30:10"]
                 }
             ]
         })
@@ -308,7 +327,7 @@ export default {
                 "nickname|1": ["张三AAA", "李四BBB"],
                 "account": "account",
                 "tel": "18522222222",
-                "type": 1
+                "type": 2
             }
         })
     },
@@ -660,10 +679,12 @@ export default {
             "list|2": [
                 {
                     "id|+1": 1,
-                    "name|1": ["健康管理师培训视频","育婴师培训视频","催乳师培训视频"],
-                    "imgUrl": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg",
-	                "videoUrl|1": ["http://www.w3school.com.cn/i/movie.ogg", "http://vjs.zencdn.net/v/oceans.mp4"],
-	                "videoPic": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"
+                    "name|1": ["学习视频名称一","学习视频名称二", "学习视频名称三"],
+                    "click|1": [100,200,300,400],
+                    "detail": "介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息介绍信息",
+                    "imgUrl|1": ["http://www.hnjkfwy.com/upload/day_180520/201805201139129214.jpg","http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"],
+                    "videoUrl|1": ["http://www.w3school.com.cn/i/movie.ogg", "http://vjs.zencdn.net/v/oceans.mp4"],
+                    "videoPic": "http://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1527600577&di=a49676be1b756f35b8e3ab3cb4585143&imgtype=jpg&src=http%3A%2F%2Fimg6.bdstatic.com%2Fimg%2Fimage%2Fpublic%2Fwuqiuhuang.jpg"
                 }
             ]
         })

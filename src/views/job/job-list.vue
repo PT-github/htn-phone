@@ -120,7 +120,7 @@
         methods: {
             applyFun() {
                 if (this.choosed.length > 0) {
-                    if (this.$store.getters.isLogin !== '1') {
+                    if (!this.$store.state.user.isLogin) {
                         Toast('请先登录')
                         setTimeout(() =>{
                             this.$router.push('/login')
@@ -128,9 +128,9 @@
                         return;
                     }
                     Toast.loading()
-                    applyJob({ids: this.choosed.join(',')}).then(res => {
+                    applyJob({ids: this.choosed.join(','), userId: this.$store.state.user.id}).then(res => {
                         Toast.clear()
-                        if (res.data.success) {
+                        if (res.success) {
                             Toast('职位申请成功')
                         } else {
                             Toast('职位申请失败')
@@ -142,7 +142,7 @@
             },
             scFun() {
                 if (this.choosed.length > 0) {
-                    if (this.$store.getters.isLogin !== '1') {
+                    if (!this.$store.state.user.isLogin) {
                         Toast('请先登录')
                         setTimeout(() =>{
                             this.$router.push('/login')
@@ -150,9 +150,9 @@
                         return;
                     }
                     Toast.loading('收藏中...')
-                    collectJobs({ids: this.choosed.join(',')}).then(res => {
+                    collectJobs({ids: this.choosed.join(','), userId: this.$store.state.user.id}).then(res => {
                         Toast.clear()
-                        if (res.data.success) {
+                        if (res.success) {
                             Toast('职位收藏成功')
                         } else {
                             Toast('职位收藏失败')

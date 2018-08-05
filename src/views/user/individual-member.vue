@@ -24,7 +24,7 @@
                 } else if (v === 2) {
                     this.$router.push('/individual-member/video-order')
                 } else if (v === 3) {
-                    this.$router.push({path: '/enterpise-member/website-mail', query: {count: this.count}})
+                    this.$router.push({path: '/individual-member/website-mail', query: {count: this.count}})
                     this.$nextTick(() => {
                         this.count = 0
                     })
@@ -66,7 +66,7 @@
             } else {
                 this.active = 3
             }
-            // this.getCounts()
+            this.getCounts()
         },
         methods: {
             getCounts() {

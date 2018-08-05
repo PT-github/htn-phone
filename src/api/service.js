@@ -202,6 +202,29 @@ export function queryCategory() {
         method: 'post'
     })
 }
+// 我的订单
+export function queryMyOrder(data) {
+    return request({
+        url: '/login/order/queryMyOrder',
+        method: 'post',
+        data
+    })
+}
+export function signUpOnlineAction(data) {
+    return request({
+        url: '/signup/signUpOnlineAction',
+        method: 'post',
+        data
+    })
+}
+// 订单删除
+export function deleteOrder(data) {
+    return request({
+        url: '/user/deleteOrder',
+        method: 'post',
+        data
+    })
+}
 // 通过分类获取视频列表
 export function queryVideoByCategory(params) {
     return request({
@@ -237,6 +260,13 @@ export function invateInterViewByIds(data) {
     method: 'post',
     data
   })
+}// 留言
+export function leaveMessgage(data) {
+    return request({
+        url: '/comments/leaveMessgage',
+        method: 'post',
+        data
+    })
 }
 // 简历收藏
 export function collectResumesByIds(data) {

@@ -26,6 +26,12 @@ const router =  new Router({
             meta: {title: '职位新增', keepAlive: false, needLogin: true}
         },
         {
+            path: '/company-detail',
+            component: _import('user/components/company-detail'),
+            name: 'companyDetail',
+            meta: {title: '公司详情', keepAlive: false}
+        },
+        {
             path: '/enterpise-member',
             component: _import('user/enterpise-member'),
             name: 'enterpiseMember',
@@ -74,15 +80,21 @@ const router =  new Router({
                 {
                     path: '/individual-member/talent-work',
                     component: _import('user/components/talent-work'),
-                    name: 'jobInterviewMan',
+                    name: 'talentWork',
                     meta: {title: '简历/工作', keepAlive: false, needLogin: true}
                 },
-                // {
-                //     path: '/individual-member/video-roder',
-                //     component: _import('user/components/video-order'),
-                //     name: 'talentPool',
-                //     meta: {title: '视频订单', keepAlive: false, needLogin: true}
-                // }
+                {
+                    path: '/individual-member/video-order',
+                    component: _import('user/components/video-order'),
+                    name: 'videoOrder',
+                    meta: {title: '视频订单', keepAlive: false, needLogin: true}
+                },
+                {
+                    path: '/individual-member/website-mail',
+                    component: _import('user/components/website-mail'),
+                    name: 'individualWebsiteMail',
+                    meta: {title: '站内信', keepAlive: false, needLogin: true}
+                }
             ]
         },
         {
@@ -90,6 +102,12 @@ const router =  new Router({
             component: _import('user/reg'),
             name: 'reg',
             meta: {title: '注册', keepAlive: false}
+        },
+        {
+            path: '/leave-message',
+            component: _import('user/leave-message'),
+            name: 'leaveMessage',
+            meta: {title: '在线留言', keepAlive: false}
         },
         {
             path: '/news-home',
@@ -180,6 +198,10 @@ const router =  new Router({
             component: _import('about/about'),
             name: 'aboutUs',
             meta: {title: '关于我们', keepAlive: true}
+        },
+        {
+            path: '*',
+            redirect: '/'
         }
     ]
 })

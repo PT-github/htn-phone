@@ -12,11 +12,11 @@ export function login(username, password, type) {
       data
     })
 }
-export function loginByCode(code) {
+export function loginByCode(openid) {
     return request({
       url: '/user/loginByCode',
       method: 'post',
-      params: {code}
+      params: {openid}
     })
 }
 

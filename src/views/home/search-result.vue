@@ -50,7 +50,7 @@
                     },
                     '5': {
                         name: '公司',
-                        to: ''
+                        to: 'company-detail'
                     },
                 }
             }

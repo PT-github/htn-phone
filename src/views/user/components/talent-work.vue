@@ -13,12 +13,13 @@
                     <div class="flex">
                         <div class="label">操作：</div>
                         <div class="value">
-                            <span @click="editFun(item.id)">编辑</span>
+                            <span @click="getResumeDetail(item.id)">编辑</span>
                             <span @click="refreshFun(item.id)">刷新</span>
                             <span @click="deleteFun(item.id)">删除</span>
                         </div>
                     </div>
                 </div>
+                <div class="add-btn" @click="addResumeFun">+</div>
             </van-tab>
             <van-tab :title="'职位收藏夹'">
                 <div class="table-box" v-for="(item, index) in collectList" :key="'collectList_' + index">
@@ -124,11 +125,18 @@
                 </div>
             </van-tab>
         </van-tabs>
+        <van-popup v-model="showAddResume" position="right" :overlay="false" style="width: 100%;height: 100%;">
+            <van-nav-bar :title="'新增简历'" left-text="返回" left-arrow @click-left="onClickLeft"/>
+            <div class="exchange-pop_content">
+                <add-resume :form="formData"></add-resume>
+            </div>
+        </van-popup>
     </div>
 </template>
 <script>
     import { Tab, Tabs, Cell, CellGroup, Toast, Field, Button, Icon, ImagePreview, Popup, NavBar, Loading } from 'vant';
-    import { deleteLookedRecords, queryLookedRecords, deleteInvitedChance, queryInvitedChance, deleteJobApplyRecods, queryMyResume, refreshMyResume, deleteMyResume, queryCollectJobs, applyJob, deleteCollectJobs, queryJobApplyRecods } from '@/api/service'
+    import { queryResumeDetail, deleteLookedRecords, queryLookedRecords, deleteInvitedChance, queryInvitedChance, deleteJobApplyRecods, queryMyResume, refreshMyResume, deleteMyResume, queryCollectJobs, applyJob, deleteCollectJobs, queryJobApplyRecods } from '@/api/service'
+    import addResume from './add-resume'
     export default {
         name: 'enterpiseBaseinfo',
         data() {
@@ -139,6 +147,39 @@
                 jobApplyRecods: [],
                 invitedChance: [],
                 lookedRecords: [],
+                showAddResume: false,
+                formData: {
+                    id: '',
+                    name: '',
+                    birth: '',
+                    phoneNumber: '',
+                    sex: '',
+                    nameFamily: '',
+                    email: '',
+                    householdRegister: '',
+                    height: '',
+                    qq: '',
+                    weight: '',
+                    politicalOutlook: '',
+                    education: '',
+                    faxedLine: '',
+                    graduationTime: '',
+                    universityGraduatedFrom: '',
+                    certificate: '',
+                    major: '',
+                    technicalTitle: '',
+                    secondMajor: '',
+                    placeResidence: '',
+                    jobIntention: '',
+                    expectSalary: '',
+                    job: '',
+                    expectedArea: '',
+                    postTime: '',
+                    handsOnWorkExperience: [],
+                    educationExperience: [],
+                    workingSkills: '',
+                    selfEvalution: ''
+                }
             }
         },
         mounted() {
@@ -148,6 +189,97 @@
             })
         },
         methods: {
+            onClickLeft() {
+                this.showAddResume = false
+            },
+            getResumeDetail(id) {
+                if (id === this.formData.id) {
+                    this.showAddResume = true
+                    return
+                }
+                this.$toast.loading()
+                queryResumeDetail({id: id}).then((res) => {
+                    console.log(res)
+                    Toast.clear()
+                    let data = res.data
+                    this.formData.id = data.id
+                    this.formData.name = data.name || ''
+                    this.formData.birth = data.birth || ''
+                    this.formData.phoneNumber = data.phoneNumber || ''
+                    this.formData.sex = data.sex || ''
+                    this.formData.nameFamily = data.nameFamily || ''
+                    this.formData.email = data.email || ''
+                    this.formData.householdRegister = data.householdRegister || ''
+                    this.formData.height = data.height || ''
+                    this.formData.weight = data.weight || ''
+                    this.formData.qq = data.qq || ''
+                    this.formData.politicalOutlook = data.politicalOutlook || ''
+                    this.formData.education = data.education || ''
+                    this.formData.faxedLine = data.faxedLine || ''
+                    this.formData.graduationTime = data.graduationTime || ''
+                    this.formData.universityGraduatedFrom = data.universityGraduatedFrom || ''
+                    this.formData.certificate = data.certificate || ''
+                    this.formData.major = data.major || ''
+                    this.formData.technicalTitle = data.technicalTitle || ''
+                    this.formData.secondMajor = data.secondMajor || ''
+                    this.formData.placeResidence = data.placeResidence || ''
+                    this.formData.jobIntention = data.jobIntention || []
+                    this.formData.expectSalary = data.expectSalary || ''
+                    this.formData.job = data.job || ''
+                    this.formData.expectedArea = data.expectedArea || ''
+                    this.formData.postTime = data.postTime || ''
+                    if (data.handsOnWorkExperience && data.handsOnWorkExperience.length > 0) {
+                        this.formData.handsOnWorkExperience.splice(0, this.formData.handsOnWorkExperience.length)
+                        this.formData.handsOnWorkExperience.push(...data.handsOnWorkExperience)
+                    }
+                    if (data.educationExperience && data.educationExperience.length > 0) {
+                        this.formData.educationExperience.splice(0, this.formData.educationExperience.length)
+                        this.formData.educationExperience.push(...data.educationExperience)
+                    }
+                    this.formData.workingSkills = data.workingSkills || ''
+                    this.formData.selfEvalution = data.selfEvalution || ''
+                    this.$nextTick(() => {
+                        this.showAddResume = true
+                    })
+                }).catch(() => {
+                    Toast.clear()
+                })
+            },
+            addResumeFun() {
+                this.formData.id = ''
+                this.formData.name = ''
+                this.formData.birth = ''
+                this.formData.phoneNumber = ''
+                this.formData.sex = ''
+                this.formData.nameFamily = ''
+                this.formData.email = ''
+                this.formData.householdRegister = ''
+                this.formData.height = ''
+                this.formData.qq = ''
+                this.formData.weight = ''
+                this.formData.politicalOutlook = ''
+                this.formData.education = ''
+                this.formData.faxedLine = ''
+                this.formData.graduationTime = ''
+                this.formData.universityGraduatedFrom = ''
+                this.formData.certificate = ''
+                this.formData.major = ''
+                this.formData.technicalTitle = ''
+                this.formData.secondMajor = ''
+                this.formData.placeResidence = ''
+                this.formData.jobIntention = ''
+                this.formData.expectSalary = ''
+                this.formData.job = ''
+                this.formData.expectedArea = ''
+                this.formData.postTime = ''
+                this.formData.handsOnWorkExperience = []
+                this.formData.educationExperience = []
+                this.formData.workingSkills = ''
+                this.formData.selfEvalution = ''
+                this.$nextTick(() => {
+                    this.showAddResume = true
+                })
+            },
             deleteLookedRecordsById(id) {
                 this.$toast.loading({duration: 0})
                 deleteLookedRecords({jobId: id, userId: this.$store.state.user.id}).then(res => {
@@ -272,6 +404,7 @@
             },
         },
         components: {
+            addResume,
             [Tab.name]: Tab,
             [Tabs.name]: Tabs,
             [Cell.name]: Cell,
@@ -286,6 +419,28 @@
     }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
+    .exchange-pop_content {
+        position: absolute;
+        top: 46px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .add-btn {
+        background-color: #f44;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 100px;
+        position: fixed;
+        right: 30px;
+        bottom: 75px;
+        color: #FFF;
+        font-size: 30px;
+    }
     .exchange-pop_content {
         position: absolute;
         top: 46px;

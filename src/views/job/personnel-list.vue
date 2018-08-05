@@ -113,7 +113,7 @@
         methods: {
             applyFun() {
                 if (this.choosed.length > 0) {
-                    if (this.$store.getters.isLogin !== '1') {
+                    if (!this.$store.state.user.isLogin) {
                         Toast('请先登录')
                         setTimeout(() =>{
                             this.$router.push('/login')
@@ -121,9 +121,9 @@
                         return;
                     }
                     Toast.loading()
-                    invateInterViewByIds({ids: this.choosed.join(',')}).then(res => {
+                    invateInterViewByIds({ids: this.choosed.join(','), userId: this.$store.state.user.id}).then(res => {
                         Toast.clear()
-                        if (res.data.success) {
+                        if (res.success) {
                             Toast('邀约面试成功')
                         } else {
                             Toast('邀约面试失败')
@@ -135,7 +135,7 @@
             },
             scFun() {
                 if (this.choosed.length > 0) {
-                    if (this.$store.getters.isLogin !== '1') {
+                    if (!this.$store.state.user.isLogin) {
                         Toast('请先登录')
                         setTimeout(() =>{
                             this.$router.push('/login')
@@ -143,9 +143,9 @@
                         return;
                     }
                     Toast.loading('收藏中...')
-                    collectResumesByIds({ids: this.choosed.join(',')}).then(res => {
+                    collectResumesByIds({ids: this.choosed.join(','), userId: this.$store.state.user.id}).then(res => {
                         Toast.clear()
-                        if (res.data.success) {
+                        if (res.success) {
                             Toast('简历收藏成功')
                         } else {
                             Toast('简历收藏失败')

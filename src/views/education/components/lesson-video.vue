@@ -2,7 +2,7 @@
     <div class="lesson-video">
         <van-list v-model="loading" :finished="finished" @load="onLoad">
             <ul class="videoList">
-                <li class="videoItem" v-for="item in list" :key="item.id + '-video-' + category">
+                <li class="videoItem" @click="showVideoFun(item)" v-for="item in list" :key="item.id + '-video-' + category">
                     <div class="pic">
                         <img :src="item.imgUrl" :alt="item.name">
                     </div>
@@ -16,11 +16,18 @@
                 </li>
             </ul>
         </van-list>
+        <van-popup v-model="showVideo" position="right" :overlay="false" style="width: 100%;height: 100%;">
+            <van-nav-bar :title="videoData.name" left-text="返回" left-arrow @click-left="onClickLeft"/>
+            <div class="exchange-pop_content">
+                <s-video-play ref="sVideoPlayDom" :videoData="videoData"></s-video-play>
+            </div>
+        </van-popup>
     </div>
 </template>
 <script>
     import { queryVideoByCategory } from '@/api/service'
-    import { List } from 'vant';
+    import { List, NavBar, Popup } from 'vant';
+    import sVideoPlay from '@/components/s-video-play'
     export default {
         props: {
             category: {
@@ -38,13 +45,36 @@
                 },
                 loading: false,
                 list: [],
-                finished: false
+                finished: false,
+                showVideo: false,
+                videoData: {
+                    videoUrl: '',
+                    videoPic: '',
+                    name: '',
+                    click: '',
+                    detail: ''
+                }
             }
         },
         mounted() {
             this.queryOptions.category = this.category
         },
         methods: {
+            onClickLeft() {
+                this.showVideo = false
+                this.$refs['sVideoPlayDom'].pause()
+            },
+            showVideoFun(item) {
+                console.log(item)
+                this.videoData.videoUrl = item.videoUrl
+                this.videoData.videoPic = item.videoPic
+                this.videoData.name = item.name
+                this.videoData.click = item.click
+                this.videoData.detail = item.detail
+                this.$nextTick(() => {
+                    this.showVideo = true
+                })
+            },
             onLoad() {
                 console.log('===' + this.queryOptions.pageNum)
                 this.loading = true
@@ -59,7 +89,10 @@
             }
         },
         components: {
-            [List.name]: List
+            [List.name]: List,
+            [Popup.name]: Popup,
+            [NavBar.name]: NavBar,
+            sVideoPlay
         }
     }
 </script>

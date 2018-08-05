@@ -17,6 +17,7 @@
             <li><router-link tag="a" :to="{path: '/personnel-list', query: {mode: 1}}">中高级人才</router-link></li>
             <li><router-link tag="a" :to="{path: '/certifate-query'}">证书查询</router-link></li>
             <li><router-link tag="a" :to="'about'">关于我们</router-link></li>
+            <li><router-link tag="a" v-if="$store.state.user.isLogin" :to="'/leave-message'">在线留言</router-link></li>
         </ul>
     </div>
 </template>
