@@ -9,7 +9,7 @@
         methods: {
             login() {
                 axios.post({
-                    url: 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=' + this.$route.query.code + '&grant_type=authorization_code'
+                    url: 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx212c673025d035a9&secret=2a0ef5079031ad8f9cf1608340561fd1&code=' + this.$route.query.code + '&grant_type=authorization_code'
                 }).then(res => {
                     // { "access_token":"ACCESS_TOKEN",
                     //     "expires_in":7200,
@@ -19,7 +19,7 @@
                     if(res.errcode) {
                         Toast.fail('微信授权失败')
                     } else {
-                        loginByCode(res.openid).then(res => {
+                        loginByCode({openId:res.openid}).then(res => {
                             if (res.success) {
                                 this.$store.dispatch('SetLoginData', res.data)
                                 history.go(-2)

@@ -58,7 +58,7 @@
             },
             goAuth() {
                 let url = 'https://open.weixin.qq.com/connect/oauth2/authorize'
-                url += '?appid=APPID'
+                url += '?appid=wx212c673025d035a9'
                 url += '&redirect_uri=' + escape(window.location.host + '/#/Auth')
                 url += '&response_type=code'
                 url += '&scope=snsapi_base'

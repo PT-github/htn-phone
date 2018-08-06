@@ -12,13 +12,13 @@
             <div class="jobDescription bg">
                 <div class="title">职位描述</div>
                 <div class="des">
-                    {{ resume.jobDescription }}
+                  <pre>{{ resume.jobDescription }}</pre>
                 </div>
             </div>
             <div class="companyInfo bg">
                 <div class="title">公司简介</div>
                 <div class="des">
-                    {{ resume.companyInfo }}
+                  <pre>{{ resume.companyInfo }}</pre>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
         methods: {
             getResumeDetail() {
                 Toast.loading()
-                queryJobDetail({id: this.$route.params.id}).then((response) => {
+                queryJobDetail({id: this.$route.query.id}).then((response) => {
                     Toast.clear()
                     if (response.success) {
                         this.resume = response.data

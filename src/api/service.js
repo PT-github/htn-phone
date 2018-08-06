@@ -198,7 +198,7 @@ export function queryCerti(data) {
 // 获取分类列表
 export function queryCategory() {
     return request({
-        url: '/video/queryVideoKind',
+        url: '/video/queryCategory',
         method: 'post'
     })
 }
@@ -228,7 +228,7 @@ export function deleteOrder(data) {
 // 通过分类获取视频列表
 export function queryVideoByCategory(params) {
     return request({
-        url: '/video/queryVideoList',
+        url: '/video/queryVideoByCategory',
         method: 'post',
         data: params
     })
@@ -552,18 +552,20 @@ export function queryJobDetail(data) {
 
 // 我的基本信息
 export function queryMyBaseInfo(data) {
+  const data2 = {}
     return request({
         url: '/login/user/queryMyBaseInfo',
         method: 'post',
-        data
+        data: data2
     })
 }
 // 我的积分
 export function queryScore(data) {
+    const data2 = {}
     return request({
         url: '/login/score/queryScore',
         method: 'post',
-        data
+        data: data2
     })
 }
 

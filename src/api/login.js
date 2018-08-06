@@ -16,7 +16,7 @@ export function loginByCode(openid) {
     return request({
       url: '/user/loginByCode',
       method: 'post',
-      params: {openid}
+      data: {openid}
     })
 }
 
