@@ -55,12 +55,12 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
     .header {
-        position: fixed;
-        top: 0;
+        position: relative;
+        /*top: 0;
         left: 0;
         right: 0;
+        z-index: 1;*/
         height: 46px;
-        z-index: 1;
         background: linear-gradient(#343434, #cccccc);
         .nav {
             width:110px;

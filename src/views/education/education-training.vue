@@ -135,7 +135,7 @@
 <style rel="stylesheet/scss" lang="scss">
     .education-training {
         .layout-concent {
-            bottom: 46px !important;
+            padding-bottom: 46px;
         }
     }
 </style>

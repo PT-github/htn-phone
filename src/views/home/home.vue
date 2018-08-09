@@ -127,14 +127,14 @@
         height: 100%;
         position: relative;
         .container {
-            position: absolute;
-            top: 46px;
+            position: relative;
+            /*top: 46px;
             left: 0;
             bottom: 0;
             right: 0;
             overflow-y: auto;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch;*/
         }
     }
 </style>
