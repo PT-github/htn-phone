@@ -137,5 +137,8 @@
     }
 </style>
 <style rel="stylesheet/scss" lang="scss">
-
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 </style>

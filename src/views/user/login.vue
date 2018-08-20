@@ -59,7 +59,8 @@
             goAuth() {
                 let url = 'https://open.weixin.qq.com/connect/oauth2/authorize'
                 url += '?appid=wx212c673025d035a9'
-                url += '&redirect_uri=' + escape(window.location.host + '/#/Auth')
+                //url += '&redirect_uri=' + escape('http://' + window.location.host + '/oauth/autoLogin')
+              url += '&redirect_uri=' + escape('http://www.hnjkrcw.club/oauth/autoLogin')
                 url += '&response_type=code'
                 url += '&scope=snsapi_base'
                 url += '&state=STATE#wechat_redirect'

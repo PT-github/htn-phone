@@ -40,6 +40,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+
     .news-detail {
         width: 100%;
         background-color: #FFF;
@@ -51,4 +52,8 @@
             font-weight: bold;
         }
     }
+</style>
+
+<style rel="stylesheet/scss" lang="scss">
+  img { width: 100%; }
 </style>

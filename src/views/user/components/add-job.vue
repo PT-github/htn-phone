@@ -23,7 +23,7 @@
 <script>
     import Layout from '@/views/layout/layout'
     import { Toast, Field, Button, Cell, CellGroup, Area, Popup, Actionsheet } from 'vant';
-    import { queryFilterOptions, addCompanyJob } from '@/api/service'
+    import { queryJobFilterOptions, addCompanyJob } from '@/api/service'
     import AreaList from '@/views/job/area';
     export default {
         name: 'addJob',
@@ -175,7 +175,7 @@
             },
             getData() {
                 Toast.loading('数据加载中...')
-                queryFilterOptions().then(res => {
+              queryJobFilterOptions().then(res => {
                     Toast.clear()
                     this.filterOptions.expectedSalary.push(...res.data.expectedSalary)
                     this.filterOptions.wrokLife.push(...res.data.wrokLife)

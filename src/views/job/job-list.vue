@@ -38,7 +38,7 @@
     import { sJobs } from './components'
     import AreaList from './area';
     import {Area, Popup, TreeSelect, Toast, List} from 'vant';
-    import { queryFilterOptions, queryJobsByPage, applyJob, collectJobs } from '@/api/service'
+    import { queryJobFilterOptions, queryJobsByPage, applyJob, collectJobs } from '@/api/service'
 
     export default {
         name: 'jobList',
@@ -240,7 +240,7 @@
             },
             getFilters() {
                 Toast.loading({mask: true, message: '加载中...'})
-                queryFilterOptions().then(res => {
+              queryJobFilterOptions().then(res => {
                     if (res.data) {
                         for (let i = 0; i < this.filters.length; i++) {
                             if (res.data[this.filters[i].key]) {

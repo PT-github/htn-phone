@@ -1,6 +1,6 @@
 <template>
     <van-cell-group>
-        <van-cell v-for="(item, index) in list" :key="'mail_-list' + index" :title="item.des" style="margin-top: -1px;">
+        <van-cell v-for="(item, index) in list" :key="'mail_-list' + index" :title="item.name" style="margin-top: -1px;">
             <div slot="right-icon">
                 <van-tag type="success" v-if="index < unreadCounts">最新消息</van-tag>
                 <van-tag v-else>历史消息</van-tag>
