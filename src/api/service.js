@@ -21,6 +21,14 @@ export function queryLessons() {
     method: 'post'
   })
 }
+// 首页课程列表
+export function queryLessonsByPhone() {
+  return request({
+    url: '/home/queryLessonsByPhone',
+    method: 'post'
+  })
+}
+
 // 首页导师列表
 export function queryTeachers() {
   return request({
@@ -31,14 +39,14 @@ export function queryTeachers() {
 // 首页热门招聘单位列表
 export function queryCompany() {
   return request({
-    url: '/home/queryJobs',
+    url: '/home/queryCompany',
     method: 'post'
   })
 }
 // 首页职位列表
 export function queryJobs() {
   return request({
-    url: '/home/queryCompany',
+    url: '/home/queryJobs',
     method: 'post'
   })
 }

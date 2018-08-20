@@ -26,7 +26,7 @@
     import { sHeader, sSlider, sTitle } from '@/components'
     import { sNews, sLessons, sTeachers, sVideo, sHunters, sJobs, sTalents, sLinks } from './components'
     import { Toast } from 'vant'
-    import { queryFriendShips,queryPoster, queryNews, queryLessons, queryTeachers, queryVideos, queryCompany, queryJobs, queryTalents } from '@/api/service'
+    import { queryFriendShips,queryPoster, queryNews, queryLessonsByPhone, queryTeachers, queryVideos, queryCompany, queryJobs, queryTalents } from '@/api/service'
     export default {
         name: 'home',
         data() {
@@ -91,7 +91,7 @@
                 })
             },
             getLessons() {
-                return queryLessons().then(res => {
+                return queryLessonsByPhone().then(res => {
                     this.lessons = res.list
                 })
             },
