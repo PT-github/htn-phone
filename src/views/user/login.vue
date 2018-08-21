@@ -9,21 +9,28 @@
             <van-button tag="a" href="/#/reg" size="small" type="default">注册</van-button>
             <van-button size="small" type="primary" @click="login">登录</van-button>
         </div>
-        <div class="bottom" @click="goAuth">
+        <!--<div class="bottom" @click="goAuth">
             已有账号，直接登录
-        </div>
+        </div>-->
         <van-actionsheet v-model="userTypeShow" :actions="actions" />
     </Layout>
 </template>
 <script>
     import Layout from '@/views/layout/layout'
     import { Toast, Field, CellGroup, Button, Cell, Actionsheet } from 'vant';
+    import { queryUserInfo } from '@/api/login'
     export default {
         name: 'user',
         computed: {
             userType() {
                 return this.type === 1 ? '个人用户' : '企业用户'
             }
+        },
+        mounted() {
+            if (this.$route.query.token) {
+                this.getUserInfo(this.$route.query.token)
+            }
+            sessionStorage.setItem('openid', this.$route.query.openid || '')
         },
         data() {
             return {
@@ -45,6 +52,27 @@
             }
         },
         methods: {
+            getUserInfo(token) {
+                Toast.loading({
+                    mask: true,
+                    duration: 0,
+                    forbidClick: true,
+                    message: '加载中...'
+                });
+                queryUserInfo(token).then(response => {
+                    const data = response.data
+                    sessionStorage.setItem('userInfo', JSON.stringify(data))
+                    this.$store.dispatch('SET_USERINFO', data)
+                    this.$store.dispatch('SET_ISLOGIN', true)
+                    this.$nextTick(() => {
+                        if (data.type === 1) {
+                            this.$router.push('/individual-member')
+                        } else {
+                            this.$router.push('/enterpise-member')
+                        }
+                    })
+                })
+            },
             onClick(item) {
                 this.type = item.type
                 this.userTypeShow = false

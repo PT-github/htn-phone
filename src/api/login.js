@@ -12,6 +12,13 @@ export function login(username, password, type) {
       data
     })
 }
+export function queryUserInfo(token) {
+    return request({
+        url: '/user/queryUserInfo',
+        method: 'post',
+        params: {token}
+    })
+}
 export function loginByCode(openid) {
     return request({
       url: '/user/loginByCode',

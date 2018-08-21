@@ -47,7 +47,13 @@
                         this.$router.push('/enterpise-member')
                     }
                 } else {
-                    this.$router.push('/login')
+                    let url = 'https://open.weixin.qq.com/connect/oauth2/authorize'
+                    url += '?appid=wx212c673025d035a9'
+                    url += '&redirect_uri=' + escape('http://www.hnjkrcw.club/oauth/autoLogin')
+                    url += '&response_type=code'
+                    url += '&scope=snsapi_base'
+                    url += '&state=STATE#wechat_redirect'
+                    window.location.href = url
                 }
             }
         }

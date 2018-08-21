@@ -13,6 +13,7 @@ Mock.mock(/\/queryCompany$/, 'post', api.queryCompany)
 Mock.mock(/\/queryTalents/, 'post', api.queryTalents)
 Mock.mock(/\/queryFriendShips/, 'post', api.queryFriendShips)
 Mock.mock(/\/queryVideos/, 'post', api.queryVideos)
+Mock.mock(/\/user\/queryUserInfo/, 'post', api.login)
 
 //拦截新闻二级页面接口请求
 Mock.mock(/\/queryWorkDynamics/, 'post', api.queryWorkDynamics)
