@@ -1,6 +1,6 @@
 <template>
     <Layout :title="'职位详情'">
-        <div class="job-detail">
+        <div class="job-detail news-detail">
             <div class="job-top">
                 <div class="name">{{ resume.name }}</div>
                 <div class="workingLife">{{ resume.workingLife }}</div>
@@ -66,7 +66,8 @@
             .des {
                 font-size: 14px;
                 line-height: 20px;
-                padding: 11px 11px 0px;
+                padding: 11px;
+                margin-bottom: 10px;
             }
             .title {
                 position: relative;

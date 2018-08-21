@@ -3,7 +3,7 @@
         <div class="member-center_content">
             <router-view></router-view>
         </div>
-        <van-tabbar v-model="active">
+        <van-tabbar v-model="active" class="member-bottom">
             <van-tabbar-item icon="shop">基本信息</van-tabbar-item>
             <van-tabbar-item icon="records">简历/职位管理</van-tabbar-item>
             <van-tabbar-item icon="gold-coin">视频/订单</van-tabbar-item>
@@ -110,5 +110,9 @@
     }
 </style>
 <style rel="stylesheet/scss" lang="scss">
+    .member-bottom {
+        z-index: 1;
+        position: absolute;
+    }
 </style>
 

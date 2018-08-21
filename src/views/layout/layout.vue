@@ -45,14 +45,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            overflow-x: hidden;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
+            overflow: hidden;
+            z-index: 0;
+            /*overflow-y: auto;
+            -webkit-overflow-scrolling: touch*/;
         }
     }
 </style>
 <style>
     * {
         box-sizing: border-box;
+    }
+    .news-detail {
+        overflow-y: auto !important;
+        height: 100%;
+        -webkit-overflow-scrolling: touch;
     }
 </style>

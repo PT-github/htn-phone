@@ -1,16 +1,18 @@
 <template>
     <Layout class="news-list" :title="'新闻中心'">
-        <s-slider :list="banners"></s-slider>
-        <s-title :link="'news-list'" :query="query">工作动态</s-title>
-        <s-news-list :list="workDynamics"></s-news-list>
-        <s-title :link="'news-list'" :query="query2">通知公告</s-title>
-        <s-news-list :list="NoticeList"></s-news-list>
-        <s-title :link="'news-list'" :query="query3">行业资讯</s-title>
-        <s-news-list :list="IndustryInfos"></s-news-list>
-        <s-title :link="'news-list'" :query="query4">政策法规</s-title>
-        <s-news-list :list="PoliticalAndRegulations"></s-news-list>
-        <s-title :link="'news-list'" :query="query5">培训风采</s-title>
-        <s-news-list :list="TrainingAndDemeanor"></s-news-list>
+        <div class="news-detail">
+            <s-slider :list="banners"></s-slider>
+            <s-title :link="'news-list'" :query="query">工作动态</s-title>
+            <s-news-list :list="workDynamics"></s-news-list>
+            <s-title :link="'news-list'" :query="query2">通知公告</s-title>
+            <s-news-list :list="NoticeList"></s-news-list>
+            <s-title :link="'news-list'" :query="query3">行业资讯</s-title>
+            <s-news-list :list="IndustryInfos"></s-news-list>
+            <s-title :link="'news-list'" :query="query4">政策法规</s-title>
+            <s-news-list :list="PoliticalAndRegulations"></s-news-list>
+            <s-title :link="'news-list'" :query="query5">培训风采</s-title>
+            <s-news-list :list="TrainingAndDemeanor"></s-news-list>
+        </div>
     </Layout>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
     <ul class="jobs lr clearfix" v-if="list.length > 0">
         <li class="jobs-item" v-for="(item, index) in list" :key="'s-jobs' + index">
-            <router-link tag="a" :to="{path: '/job-detail', query: { id: item.id }}">
+            <router-link tag="a" :to="{path: '/company-detail', query: { id: item.id }}">
                 {{ item.name }}
             </router-link>
         </li>

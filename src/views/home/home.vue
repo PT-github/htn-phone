@@ -44,9 +44,16 @@
         },
         mounted() {
             this.init()
-            document.querySelector('.container').addEventListener('scroll', () => {
-                this.$refs['headerComp'].hideNav()
-            })
+            // document.querySelector('#app').addEventListener('scroll', () => {
+            //     this.$refs['headerComp'].hideNav()
+            // })
+            let _this = this
+            window.onscroll = function() {
+                _this.$refs['headerComp'].hideNav()
+            }
+            // setTimeout(() => {
+            //     alert(document.querySelector('#app').offsetHeight)
+            // }, 1000)
         },
         methods: {
             init() {
@@ -128,6 +135,7 @@
         position: relative;
         .container {
             position: relative;
+            z-index: 0;
             /*top: 46px;
             left: 0;
             bottom: 0;

@@ -1,6 +1,6 @@
 <template>
     <Layout :title="'招揽人才'">
-        <div class="resume-detail">
+        <div class="resume-detail news-detail">
             <div class="title">基本信息</div>
             <div class="box">
                 <div class="flex">

@@ -1,6 +1,6 @@
 <template>
     <Layout class="news-list" :title="title">
-        <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="news-detail">
             <van-list v-model="loading" :finished="finished" @load="getData" >
                 <s-news-list :list="list"></s-news-list>
             </van-list>

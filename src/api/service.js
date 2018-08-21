@@ -246,6 +246,14 @@ export function queryVideoByCategory(params) {
 
 // =======================招揽人才开始=========================
 // 获取过滤条件
+export function queryJobFilterOptions(data) {
+    return request({
+        url: '/talent/queryFilterOptions',
+        method: 'post',
+        data
+    })
+}
+// 获取过滤条件
 export function queryFilterOptions(data) {
     return request({
         url: '/talent/queryFilterOptions',
