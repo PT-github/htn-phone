@@ -62,7 +62,8 @@
                     password: this.password,
                     tel: this.tel,
                     email: this.email,
-                    type: this.type
+                    type: this.type,
+                  openid: sessionStorage.getItem('openid')
                 }).then(res => {
                     if (res.success) {
                         Toast.success('注册成功')

@@ -1,22 +1,22 @@
 import request from '@/utils/request'
 
-export function login(username, password, type) {
-    const data = {
-        username,
-        password,
-        type
-    }
+export function login(data) {
+    // const data = {
+    //     username,
+    //     password,
+    //     type
+    // }
     return request({
       url: '/user/login',
       method: 'post',
-      data
+      data: data
     })
 }
 export function queryUserInfo(token) {
     return request({
         url: '/user/queryUserInfo',
         method: 'post',
-        params: {token}
+        data: token
     })
 }
 export function loginByCode(openid) {

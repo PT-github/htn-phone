@@ -59,7 +59,7 @@
                     forbidClick: true,
                     message: '加载中...'
                 });
-                queryUserInfo(token).then(response => {
+                queryUserInfo({token: token}).then(response => {
                     const data = response.data
                     sessionStorage.setItem('userInfo', JSON.stringify(data))
                     this.$store.dispatch('SET_USERINFO', data)
@@ -79,7 +79,7 @@
             },
             login(){
                 Toast.loading()
-                this.$store.dispatch('Login', {username: this.username, password: this.password, type: this.type}).then(() => {
+                this.$store.dispatch('Login', {username: this.username, password: this.password, type: this.type, openid: sessionStorage.getItem('openid')}).then(() => {
                     Toast.clear()
                     history.back()
                 })

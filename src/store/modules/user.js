@@ -43,7 +43,7 @@ const user = {
             const username = userInfo.username.trim()
             const password = userInfo.password.trim()
             return new Promise((resolve, reject) => {
-                login(username, password, userInfo.type).then(response => {
+                login({username: username, password: password, type: userInfo.type, openid: sessionStorage.getItem('openid')}).then(response => {
                     const data = response.data
                     sessionStorage.setItem('userInfo', JSON.stringify(data))
                     commit('SET_USERINFO', data)
